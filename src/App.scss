@@ -1,0 +1,82 @@
+@import "fonts";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a, input {
+  text-decoration: none;
+  color: inherit;
+  line-height: 20px;
+}
+
+body, html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: Stolzl;
+  font-weight: 500;
+  font-size: 15px;
+  background: #161516;
+}
+
+button {
+  font-family: Stolzl;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.swiper {
+  height: 100%;
+  color: #fff;
+}
+
+.car-slider {
+  .swiper-slide {
+    > div {
+      opacity: .5;
+      transform: translateX(70px);
+      transition: .3s linear;
+      &:hover {
+        opacity: 1;
+      }
+      .title {
+        font-weight: 700;
+        font-size: 24px;
+        margin-bottom: 15px;
+      }
+      .subtitle {
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+
+  }
+  .swiper-slide-active {
+    > div {
+      transform: translateX(65px) scale(1.2);
+      opacity: 1;
+      color: #33B7BC;
+    }
+  }
+  .swiper-slide-prev, .swiper-slide-next {
+    > div {
+      transform: translateX(30px);
+      opacity: 1;
+
+    }
+  }
+}
+

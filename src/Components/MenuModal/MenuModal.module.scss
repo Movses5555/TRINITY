@@ -1,0 +1,117 @@
+.menu {
+  min-height: 100vh;
+  height: 100vh;
+  min-width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-image: url("../../assets/img/menu-bg.jpg");
+  overflow-y: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media screen and (max-width: 1200px){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media screen and (max-width: 1200px){
+    justify-content: flex-start;
+  }
+  @media screen and (max-width: 850px){
+    background-position: -600px;
+  }
+  .content {
+    display: flex;
+    align-items: flex-start;
+    padding: 250px 220px 0;
+    @media screen and (max-width: 1200px){
+      padding: 0 20px;
+    }
+    @media screen and (max-width: 850px){
+      width: 100%;
+      justify-content: space-between;
+    }
+    .col {
+      width: 440px;
+      @media screen and (max-width: 1200px){
+        width: auto;
+      }
+      a {
+        font-weight: 500;
+        font-size: 54px;
+        line-height: 60px;
+        color: #76828C;
+        display: block;
+        transition: .3s linear;
+        position: relative;
+        width: fit-content;
+        margin-bottom: 70px;
+        @media screen and (max-width: 850px){
+          font-size: 20px;
+          margin-bottom: 30px;
+        }
+
+        &:before {
+          width: 100%;
+          content: '';
+          height: 10px;
+          background: #33B7BC;
+          clip-path: polygon(100% -2px, 5px -2px, -3px 8px, 93.5% 6px);
+          bottom: 0;
+          left: 0;
+          position: absolute;
+          transition: .3s linear;
+          opacity: 0;
+        }
+
+
+        &:hover {
+          color: #fff;
+          &:before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+  }
+  .bottom {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    border-top: 1px solid #272727;
+    padding: 50px 218px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media screen and (max-width: 1200px){
+      padding: 50px 220px 50px 20px;
+    }
+    @media screen and (max-width: 850px){
+      padding: 20px 20px 0px;
+    }
+
+    .address {
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 34px;
+      color: #76828C;
+      width: 436px;
+      @media screen and (max-width: 1000px){
+        display: none;
+      }
+    }
+
+    .tel {
+      font-weight: 700;
+      font-size: 34px;
+      line-height: 90px;
+      color: #FFFFFF;
+      @media screen and (max-width: 850px){
+        font-size: 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+.ask {
+  .askWrap {
+    display: flex;
+    align-items: flex-start;
+    @media screen and (max-width: 1250px) {
+      display: block;
+    }
+
+    iframe {
+      width: 1100px;
+      height: 860px;
+      border-radius: 0px 20px 20px 0px;
+      @media screen and (max-width: 1250px) {
+        display: none !important;
+      }
+    }
+
+    .askForm {
+      margin-left: 60px;
+      max-width: 700px;
+      position: relative;
+      z-index: 100;
+      @media screen and (max-width: 1250px) {
+        display: block;
+        width: calc(100% - 40px);
+        max-width: none;
+        margin-right: 20px;
+        margin-left: 20px;
+      }
+      .title {
+        font-weight: 500;
+        font-size: 70px;
+        color: #FFFFFF;
+        margin-bottom: 80px;
+        @media screen and (max-width: 1250px) {
+          text-align: center;
+        }
+        @media screen and (max-width: 850px) {
+          font-size: 40px;
+          margin-bottom: 40px;
+        }
+      }
+
+      .input, textarea {
+        width: 100%;
+        background: linear-gradient(90.75deg, #1C1C1C 0.65%, rgba(27, 27, 27, 0.4) 107.06%);
+        border-radius: 10px;
+        padding: 36px 30px;
+        font-weight: 400;
+        font-size: 20px;
+        color: #fff;
+        border: 1px solid rgba(67, 67, 67, .6);
+        margin-bottom: 30px;
+        resize: none;
+        font-family: 'Stolzl';
+
+        transition: .3s linear;
+
+        @media screen and (max-width: 850px) {
+          padding: 21px 20px;
+          font-size: 15px;
+          margin-bottom: 15px;
+        }
+
+        &:hover {
+          border-color: rgba(67, 67, 67, 1);
+        }
+
+        &:focus {
+          outline: none;
+          border-color: #33B7BC;
+        }
+      }
+
+      .formSend {
+        margin-top: 40px;
+        width: 310px;
+        height: 90px;
+        border: 2px solid #33B7BC;
+        border-radius: 10px;
+        background: transparent;
+        font-weight: 700;
+        font-size: 18px;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        box-shadow: 0 0 0 0 transparent;
+        cursor: pointer;
+        transition: .3s linear;
+        @media screen and (max-width: 1250px) {
+          width: 100%;
+        }
+
+        @media screen and (max-width: 850px) {
+          font-size: 15px;
+          margin-top: 30px;
+          height: 60px;
+        }
+
+        &:hover {
+          box-shadow: 0px 0px 20px #245C5F;
+          background: #33B7BC;
+        }
+      }
+    }
+  }
+}
