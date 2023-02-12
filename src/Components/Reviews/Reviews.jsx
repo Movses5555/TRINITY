@@ -66,8 +66,8 @@ function Reviews() {
                 >
                     {videos.map((video, i) => {
                         return (
-                            <SwiperSlide>
-                                <a key={i} href={video.url} className={styles.video}>
+                            <SwiperSlide key={i} >
+                                <a href={video.url} className={styles.video}>
                                     <img src={video.preview} alt=""/>
                                     <span className={styles.hoverBg}>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88" fill="none">

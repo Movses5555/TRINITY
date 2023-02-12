@@ -25,8 +25,8 @@ function Row() {
                 <Swiper slidesPerView={5}>
                     {cars.map((item, i) => {
                         return (
-                            <SwiperSlide>
-                                <div onClick={() => setActive(item)} key={i} className={active === item ? `${styles.item} ${styles.active}` : styles.item}>
+                            <SwiperSlide key={i} >
+                                <div onClick={() => setActive(item)} className={active === item ? `${styles.item} ${styles.active}` : styles.item}>
                                     <p><nobr>{item}</nobr></p>
                                 </div>
                             </SwiperSlide>
