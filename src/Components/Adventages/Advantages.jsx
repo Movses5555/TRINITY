@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Adventages.module.scss';
 import advantages from '../../assets/img/adventages2.jpg';
 import bg from '../../assets/img/advMobBg.svg';
+import Aos from 'aos';
+import 'aos/dist/aos.css'
+
 
 function Advantages() {
+
+    useEffect(() => {
+        Aos.init({
+            debounceDelay: 50
+        });
+    }, [])
 
     const adv = [
         {img: advantages, text: '40+ unique cars for rent from our fleet'},
@@ -14,13 +23,29 @@ function Advantages() {
         {img: advantages, text: 'All models have a premium package'},
     ]
 
+    let animationTypes = [
+        'fade-down-right',
+        'fade-down',
+        'fade-down-left',
+        'fade-up-right',
+        'fade-up',
+        'fade-up-left', 
+    ];
+
     return (
         <section className={styles.advantages}>
             <h2 className={styles.title}>Advantages</h2>
             <div className={styles.advWrap}>
                 {adv.map((item, i) => {
                 return (
-                    <div key={i} className={styles.adv}>
+                    <div
+                        key={i}
+                        className={styles.adv}
+                        data-aos={ animationTypes[i] }
+                        data-aos-delay="1000"
+                        data-aos-once="true"
+                        data-aos-duration="2000"
+                    >
                         <span></span>
                         <img src={item.img} alt=""/>
                         <p>{item.text}</p>

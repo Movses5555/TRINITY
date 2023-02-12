@@ -8,21 +8,19 @@ import Advantages from "../Components/Adventages/Advantages";
 import Ask from "../Components/Ask/Ask";
 import Discount from "../Components/Discount/Discount";
 import Row from "../Components/Row/Row";
-import MainScreen from "../Components/MainScreen/MainScreen";
 
-export const Main = () => {
+export const Cars = () => {
   return (
-    <div className="container">
-      <MainScreen />
-      <Slider/>
-      <Offers/>
-      <About/>
-      <FullPageImage/>
-      <Reviews/>
-      <Advantages/>
-      <Ask/>
-      <Discount/>
-      <Row/>
-    </div>
+      <div className="container">
+        <Slider/>
+        <Offers/>
+        <About/>
+        <FullPageImage/>
+        <Reviews/>
+        <Advantages/>
+        <Ask/>
+        <Discount/>
+        <Row/>
+      </div>
   );
 }

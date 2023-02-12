@@ -1,22 +1,33 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {SwiperSlide, Swiper} from "swiper/react";
 import 'swiper/css';
 import {Controller, EffectCoverflow, EffectFade, Thumbs} from "swiper";
 import carImage from '../../assets/img/sliderCarImage.jpg';
+import carOffer1 from '../../assets/img/carOffer1.jpg';
+import carOffer2 from '../../assets/img/carOffer2.jpg';
+import carOffer3 from '../../assets/img/carOffer3.jpg';
+import carOffer4 from '../../assets/img/carOffer4.jpg';
 import styles from './Slider.module.scss';
 import {NavLink} from "react-router-dom";
 
-function Slider() {
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
+
+function Slider() {
     const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
     const [slider, setSlider] = React.useState(null);
-
+    
+    useEffect(() => {
+        Aos.init();
+    }, [])
+    
     const carsArray = [
         {image: carImage, carTitle: 'Audi', carSubtitle: 'Huracan EVO Spyder RS6', price: '2 400'},
-        {image: carImage, carTitle: 'Lamborghini', carSubtitle: 'Urus', price: '2 400'},
-        {image: carImage, carTitle: 'Lamborghini', carSubtitle: 'Huracan EVO Spyder RS6', price: '2 400'},
-        {image: carImage, carTitle: 'Ferrari', carSubtitle: 'Roma', price: '2 400'},
-        {image: carImage, carTitle: 'Range Rover', carSubtitle: 'Autobiography New 2022', price: '2 400'},
+        {image: carOffer1, carTitle: 'Lamborghini', carSubtitle: 'Urus', price: '2 400'},
+        {image: carOffer2, carTitle: 'Lamborghini', carSubtitle: 'Huracan EVO Spyder RS6', price: '2 400'},
+        {image: carOffer3, carTitle: 'Ferrari', carSubtitle: 'Roma', price: '2 400'},
+        {image: carOffer4, carTitle: 'Range Rover', carSubtitle: 'Autobiography New 2022', price: '2 400'},
     ];
 
     const [searchValue, setValue] = React.useState('');
@@ -26,7 +37,7 @@ function Slider() {
     return (
         <section className={styles.slider}>
             <div className={styles.sliderWrap}>
-                <div className={styles.imageSlider}>
+                <div className={styles.imageSlider} data-aos="slide-right">
                     <Swiper
                         modules={[EffectFade, EffectCoverflow, Thumbs, Controller]}
                         direction={'vertical'}
@@ -39,18 +50,20 @@ function Slider() {
                         initialSlide={2}
                         className={styles.carImageSlider}
                         >
-                        {carsArray.map((car, i) => {
-                            return (
-                                <SwiperSlide key={i} className={styles.slide}>
-                                    <img src={car.image} alt=""/>
-                                    <p className={styles.carTitle}>{car.carTitle}<br/>{car.carSubtitle}</p>
-                                    <p className={styles.price}>Rent is from aed<br/><span>{car.price}$</span><br/>per day</p>
-                                </SwiperSlide>
-                            )
-                        })}
+                        {
+                            carsArray.map((car, i) => {
+                                return (
+                                    <SwiperSlide key={i} className={styles.slide}>
+                                        <img src={car.image} alt=""/>
+                                        <p className={styles.carTitle}>{car.carTitle}<br/>{car.carSubtitle}</p>
+                                        <p className={styles.price}>Rent is from aed<br/><span>{car.price}$</span><br/>per day</p>
+                                    </SwiperSlide>
+                                )
+                            })
+                        }
                     </Swiper>
                 </div>
-                <div className={styles.rightSide}>
+                <div className={styles.rightSide} data-aos="slide-left">
                     <h2 className={styles.title}>Most Popular</h2>
                     <div className={styles.inputWrap}>
                         <input placeholder={'Car search'} value={searchValue} onChange={(e) => setValue(e.target.value)} type="text" className={styles.carSearch}/>

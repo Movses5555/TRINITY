@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Discount.module.scss';
 import sprite1 from '../../assets/img/Mask Group.svg';
 import sprite2 from '../../assets/img/Mask Group2.svg';
 import sprite3 from '../../assets/img/plusSprite.svg';
 import bg from '../../assets/img/discountBg.png';
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 function Discount() {
+    
+    useEffect(() => {
+        Aos.init({
+            debounceDelay: 3000,
+            duration: 1000,
+        });
+    }, [])
+
     return (
-        <section className={styles.discount}>
+        <section className={styles.discount} data-aos="zoom-out" >
             <img src={bg} className={styles.discountBg} alt=""/>
             <div className={styles.card}>
                 <span className={styles.bg}></span>

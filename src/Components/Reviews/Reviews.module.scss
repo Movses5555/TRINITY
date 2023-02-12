@@ -1,10 +1,9 @@
 .reviews {
-  padding: 260px 0;
-
+  margin-bottom: 260px;
+  position: relative;
   @media screen and (max-width: 850px) {
-    padding: 80px 0;
+    margin-bottom: 80px;
   }
-
   .title {
     font-weight: 500;
     font-size: 100px;
@@ -17,7 +16,7 @@
     }
   }
 
-  .reviewsViodeos {
+  .reviewsVideos {
     display: flex;
     align-items: center;
     flex-wrap: wrap;

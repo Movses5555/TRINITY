@@ -2,6 +2,7 @@
   padding-top: 260px;
   position: relative;
   padding-bottom: 100px;
+  padding-inline: 32px;
   @media screen and (max-width: 1350px) {
     padding:  260px 20px 100px;
   }
@@ -61,7 +62,12 @@
       @media screen and (max-width: 850px) {
         margin-bottom: 25px;
       }
-
+      .PlusCount {
+        font-weight: 700;
+        font-size: 130px;
+        line-height: 90px;
+        text-shadow: 0px 0px 7px #22ECF3;
+      }
       .PlusTitle {
         font-weight: 500;
         font-size: 24px;
@@ -84,7 +90,7 @@
     }
 
     .plus {
-      width: 396px;
+      width: 30%;
       @media screen and (max-width: 1250px) {
         margin-bottom: 30px;
 

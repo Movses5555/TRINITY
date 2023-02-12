@@ -1,10 +1,24 @@
-import './App.scss';
-import Main from "./Pages/Main";
+import React from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Main } from "./Pages/Main";
+import { Cars } from "./Pages/Cars";
+import { Layout } from "./Pages/Layout";
+import { NotFound } from './Pages/NotFound'
 
-function App() {
+import './App.scss';
+
+const App = () => {
   return (
     <div className="App">
-        <Main/>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route exact path="/" element={<Main/>} />
+            <Route exact path="/car-list" element={<Cars/>} />
+            <Route path="*" element={<NotFound/>} />
+          </Routes>
+        </Layout>
+      </Router>
     </div>
   );
 }

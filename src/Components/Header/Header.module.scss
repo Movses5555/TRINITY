@@ -1,6 +1,12 @@
 .header {
   background: transparent;
   padding: 40px 60px 0;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
   @media screen and (max-width: 1250px) {
     padding: 30px 20px 0;
   }
@@ -28,8 +34,6 @@
           clip-path: polygon(68px -2px, 0px 0px, 0px 2px, 47px 5px);
           transition: .3s linear;
         }
-
-
 
         &:hover {
           > * {

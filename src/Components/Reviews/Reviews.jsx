@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Reviews.module.scss';
 import preview1 from '../../assets/img/preview1.jpg';
 import preview2 from '../../assets/img/preview2.jpg';
 import preview3 from '../../assets/img/preview3.jpg';
 import preview4 from '../../assets/img/preview4.jpg';
 import {Swiper, SwiperSlide} from "swiper/react";
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 function Reviews() {
+    useEffect(() => {
+        Aos.init({
+            debounceDelay: 50
+        });
+    }, [])
 
     const videos = [
         {url: '/', preview: preview1},
@@ -21,10 +28,19 @@ function Reviews() {
     return (
         <section className={styles.reviews}>
             <h2 className={styles.title}>Reviews</h2>
-            <div className={styles.reviewsViodeos}>
+            <div className={styles.reviewsVideos}>
                 {videos.map((video, i) => {
+                    let slideType = i%2 === 0 ? "slide-up" : ""
                     return (
-                        <a key={i} href={video.url} className={styles.video}>
+                        <a
+                            key={i}
+                            href={video.url}
+                            className={ styles.video }
+                            data-aos={ slideType }
+                            data-aos-delay="1000"
+                            data-aos-once="true"
+                            data-aos-duration="2000"
+                        >
                             <img src={video.preview} alt=""/>
                             <span className={styles.hoverBg}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88" fill="none">
