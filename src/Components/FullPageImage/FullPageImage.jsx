@@ -1,14 +1,8 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import styles from './FullPageImage.module.scss';
 import img from '../../assets/img/fullPageImage.jpg';
-import Aos from 'aos';
-import 'aos/dist/aos.css'
 
 function FullPageImage() {
-    useEffect(() => {
-        Aos.init();
-    }, [])
-
     return (
         <div
             className={styles.fullPageImage}

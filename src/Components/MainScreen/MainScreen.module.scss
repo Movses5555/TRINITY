@@ -28,10 +28,69 @@
       top: 0;
       left: 0;
       animation-duration: 3s;
-      animation-name: main;
+      animation-name: desktopMain;
       animation-iteration-count: 1;
       animation-direction: alternate;
+      
+      @media screen and (max-width: 1024px) {
+        animation-name: tabletMain;
+        width: 150%;
+        height: 110%;
+        top: -10%;
+        left: -25%;
+      }
+      @media screen and (max-width: 850px) {
+        animation-name: mobileMain;
+        width: 260%;
+        height: 150%;
+        top: -25%;
+        left: -80%;
+      }
+
+      @keyframes desktopMain {
+        0% {
+          width: 400%;
+          height: 400%;
+          top: -155%;
+          left: -155%;
+        }
+        100% {
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+        }
+      }
+      @keyframes tabletMain {
+        0% {
+          width: 400%;
+          height: 400%;
+          top: -155%;
+          left: -155%;
+        }
+        100% {
+          width: 150%;
+          height: 110%;
+          top: -10%;
+          left: -25%;
+        }
+      }
+      @keyframes mobileMain {
+        0% {
+          width: 800%;
+          height: 600%;
+          top: -250%;
+          left: -350%;
+        }
+        100% {
+          width: 260%;
+          height: 150%;
+          top: -25%;
+          left: -80%;
+        }
+      }
     }
+
     @media screen and (max-width: 850px) {
       min-height: 0;
       height: 100vh;
@@ -61,9 +120,6 @@
       font-size: 120px;
       text-align: center;
       color: #FFFFFF;
-      @media screen and (max-width: 1250px) {
-        margin-top: 195px;
-      }
       @media screen and (max-width: 850px){
         font-size: 60px;
       }

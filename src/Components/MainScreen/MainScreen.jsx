@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './MainScreen.module.scss';
 import MainBg from '../../assets/img/main-bg.jpg';
 
-function MainScreen({setMenuStatus, menuStatus}) {
+function MainScreen() {
   return (
     <div className={styles.main}>
       <div className={styles.background} >

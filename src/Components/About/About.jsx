@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState, useEffect } from 'react';
-import { GetScrollPosition } from '../../helpers/getScrollPosition';
+import React from 'react';
 import styles from './About.module.scss';
 import sprite from '../../assets/img/bgSpriteAbout.svg';
 
@@ -32,14 +31,20 @@ function About() {
             <h2 className={styles.title}>About Us</h2>
             <div className={styles.pluses}>
                 {
-                    mockData?.map((item, index) => {
+                    mockData?.map((item, i) => {
+                        let slideType = i === 0 ? "slide-right" : i === 2 ? "slide-left" : "";
                         return (
-                            <Counter
-                                key={index}
-                                count={item.count}
-                                type={item.type}
-                                description={item.description}
-                            />
+                            <div
+                                className={styles.plus}
+                                key={i}
+                                data-aos={slideType}
+                            >
+                                <div className={styles.titleRow}>
+                                    <p className={styles.PlusCount}>{item.count}</p>
+                                    <p className={styles.PlusTitle}>{item.type}</p>
+                                </div>
+                                <p className={styles.text}>{item.description}</p>
+                            </div>
                         )
                     })
                 }
@@ -52,40 +57,5 @@ function About() {
     );
 }
 
-const Counter = ({
-    count,
-    type,
-    description,
-}) => {
-    const [number, setNumber] = useState(0);
-    const scrollTop = GetScrollPosition();
-
-    useEffect(() => {
-        let aboutSection = document.getElementById('about-section');
-        if(!!aboutSection && scrollTop > aboutSection?.offsetTop && number === 0) {
-            let start = 0;
-            if(start === count){
-                return;
-            }
-            let timer = setInterval(() => {
-                start++;
-                setNumber(start)
-                if(start === count){
-                    clearInterval(timer)
-                }
-            }, 100)
-        }
-    }, [count, type, scrollTop])
-
-    return (
-        <div className={styles.plus}>
-            <div className={styles.titleRow}>
-                <p className={styles.PlusCount}>{number}</p>
-                <p className={styles.PlusTitle}>{type}</p>
-            </div>
-            <p className={styles.text}>{description}</p>
-        </div>
-    )
-}
 
 export default About;

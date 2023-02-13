@@ -41,6 +41,9 @@
         transition: .3s linear;
         background: linear-gradient(14.71deg, rgba(22, 21, 22, 0.66) 2.92%, rgba(22, 21, 22, 0.31) 107.69%);
       }
+      img {
+        width: 100%;
+      }
       &:hover {
         .hoverBg {
           opacity: 1;

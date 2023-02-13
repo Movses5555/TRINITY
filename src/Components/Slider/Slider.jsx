@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {SwiperSlide, Swiper} from "swiper/react";
 import 'swiper/css';
 import {Controller, EffectCoverflow, EffectFade, Thumbs} from "swiper";
@@ -10,17 +10,9 @@ import carOffer4 from '../../assets/img/carOffer4.jpg';
 import styles from './Slider.module.scss';
 import {NavLink} from "react-router-dom";
 
-import Aos from 'aos';
-import 'aos/dist/aos.css'
-
-
 function Slider() {
     const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
     const [slider, setSlider] = React.useState(null);
-    
-    useEffect(() => {
-        Aos.init();
-    }, [])
     
     const carsArray = [
         {image: carImage, carTitle: 'Audi', carSubtitle: 'Huracan EVO Spyder RS6', price: '2 400'},

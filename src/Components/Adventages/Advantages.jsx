@@ -1,19 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './Adventages.module.scss';
 import advantages from '../../assets/img/adventages2.jpg';
 import bg from '../../assets/img/advMobBg.svg';
-import Aos from 'aos';
-import 'aos/dist/aos.css'
-
 
 function Advantages() {
-
-    useEffect(() => {
-        Aos.init({
-            debounceDelay: 50
-        });
-    }, [])
-
     const adv = [
         {img: advantages, text: '40+ unique cars for rent from our fleet'},
         {img: advantages, text: 'Delivery and return of cars in Dubai 24/7'},
@@ -42,8 +32,8 @@ function Advantages() {
                         key={i}
                         className={styles.adv}
                         data-aos={ animationTypes[i] }
-                        data-aos-delay="1000"
-                        data-aos-once="true"
+                        data-aos-once="false"
+                        data-aos-mirror="true"
                         data-aos-duration="2000"
                     >
                         <span></span>

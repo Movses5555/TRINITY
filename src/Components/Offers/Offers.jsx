@@ -1,19 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './Offers.module.scss';
 import offerImg1 from '../../assets/img/carOffer1.jpg';
 import offerImg2 from '../../assets/img/carOffer2.jpg';
 import offerImg3 from '../../assets/img/carOffer3.jpg';
 import offerImg4 from '../../assets/img/carOffer4.jpg';
 import {NavLink} from "react-router-dom";
-import Aos from 'aos';
-import 'aos/dist/aos.css'
 
-function Offers() {
-
-    useEffect(() => {
-        Aos.init();
-    }, [])
-    
+function Offers() {    
     const tabs = [
         'Special Offer', 'New car', 'Most Popular', 'Daily'
     ]

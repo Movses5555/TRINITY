@@ -1,20 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './Reviews.module.scss';
 import preview1 from '../../assets/img/preview1.jpg';
 import preview2 from '../../assets/img/preview2.jpg';
 import preview3 from '../../assets/img/preview3.jpg';
 import preview4 from '../../assets/img/preview4.jpg';
 import {Swiper, SwiperSlide} from "swiper/react";
-import Aos from 'aos';
-import 'aos/dist/aos.css'
 
 function Reviews() {
-    useEffect(() => {
-        Aos.init({
-            debounceDelay: 50
-        });
-    }, [])
-
     const videos = [
         {url: '/', preview: preview1},
         {url: '/', preview: preview2},
@@ -37,8 +29,8 @@ function Reviews() {
                             href={video.url}
                             className={ styles.video }
                             data-aos={ slideType }
-                            data-aos-delay="1000"
-                            data-aos-once="true"
+                            data-aos-once="false"
+                            data-aos-mirror="true"
                             data-aos-duration="2000"
                         >
                             <img src={video.preview} alt=""/>
