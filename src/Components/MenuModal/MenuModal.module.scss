@@ -5,18 +5,16 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 999;
   background-image: url("../../assets/img/menu-bg.jpg");
   overflow-y: auto;
   background-repeat: no-repeat;
   background-size: cover;
   @media screen and (max-width: 1200px){
     display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  @media screen and (max-width: 1200px){
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 100px;
   }
   @media screen and (max-width: 850px){
     background-position: -600px;
@@ -27,10 +25,8 @@
     padding: 250px 220px 0;
     @media screen and (max-width: 1200px){
       padding: 0 20px;
-    }
-    @media screen and (max-width: 850px){
       width: 100%;
-      justify-content: space-between;
+      justify-content: space-around;
     }
     .col {
       width: 440px;
@@ -64,8 +60,6 @@
           transition: .3s linear;
           opacity: 0;
         }
-
-
         &:hover {
           color: #fff;
           &:before {
@@ -77,17 +71,16 @@
 
   }
   .bottom {
-    position: fixed;
     width: 100%;
-    left: 0;
-    bottom: 0;
     border-top: 1px solid #272727;
     padding: 50px 218px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     @media screen and (max-width: 1200px){
-      padding: 50px 220px 50px 20px;
+      padding: 50px 20px;
+      width: 100%;
+      border: none;
     }
     @media screen and (max-width: 850px){
       padding: 20px 20px 0px;
@@ -103,14 +96,109 @@
         display: none;
       }
     }
-
-    .tel {
-      font-weight: 700;
-      font-size: 34px;
-      line-height: 90px;
-      color: #FFFFFF;
-      @media screen and (max-width: 850px){
-        font-size: 20px;
+    .telAndLinks {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      @media screen and (max-width: 1000px){
+        justify-content: space-between;
+      }
+      .tel {
+        font-weight: 700;
+        font-size: 34px;
+        line-height: 90px;
+        color: #FFFFFF;
+        @media screen and (max-width: 850px){
+          font-size: 20px;
+        }
+      }
+      .socialLinks {
+        width: 128px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: 26px;
+        @media screen and (max-width: 850px){
+          bottom: 20px;
+          right: 20px;
+        }
+    
+        .link {
+          height: 54px;
+          width: 54px;
+    
+          transition: .3s linear;
+          position: relative;
+    
+          svg {
+            position: relative;
+            z-index: 100;
+          }
+    
+          span {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 100%;
+          }
+    
+          &:before {
+            width: 62px;
+            height: 62px;
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            content: '';
+            z-index: 10;
+            border-radius: 100%;
+            transition: .2s linear;
+            opacity: 0;
+          }
+    
+          &:after {
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            content: '';
+            z-index: 10;
+            border-radius: 100%;
+            transition: .3s linear;
+            opacity: 0;
+          }
+    
+          &:hover {
+            &:before {
+              opacity: .6;
+            }
+            &:after {
+              opacity: .3;
+            }
+          }
+          
+          &.telegram {
+            span {
+              background: #34AADF;
+            }
+            &:before, &:after {
+              background: #34AADF;
+            }
+          }
+          
+          &.whatsapp {
+            span {
+              background: #43D854;
+            }
+            &:before, &:after {
+              background: #43D854;
+            }
+          }
+        }
       }
     }
   }
