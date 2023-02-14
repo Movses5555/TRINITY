@@ -6,11 +6,11 @@ function FullPageImage() {
     return (
         <div
             className={styles.fullPageImage}
-            data-aos="zoom-out" 
+            data-aos="zoom-in" 
             data-aos-offset="100"
             data-aos-delay="50"
             data-aos-duration="500"
-            data-aos-easing="zoom-out"
+            data-aos-easing="zoom-in"
             data-aos-mirror="true"
             data-aos-once="false"
             data-aos-anchor-placement="top-center"

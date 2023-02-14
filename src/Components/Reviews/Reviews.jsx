@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Reviews.module.scss';
 import preview1 from '../../assets/img/preview1.jpg';
 import preview2 from '../../assets/img/preview2.jpg';
 import preview3 from '../../assets/img/preview3.jpg';
 import preview4 from '../../assets/img/preview4.jpg';
 import {Swiper, SwiperSlide} from "swiper/react";
+import { GetScrollPosition } from '../../helpers/getScrollPosition';
+import Aos from 'aos';
 
 function Reviews() {
     const videos = [
@@ -17,8 +19,16 @@ function Reviews() {
     const [index, setIndex] = React.useState(0);
     const [slider, setSlider] = React.useState(null);
 
+    const scrollTop = GetScrollPosition();
+    useEffect(() => {
+        let reviewsSection = document.getElementById('reviews-section');
+        if(!!reviewsSection && scrollTop > reviewsSection?.offsetTop ) {
+            Aos.init();
+        }
+    }, [scrollTop])
+
     return (
-        <section className={styles.reviews}>
+        <section className={styles.reviews} id="reviews-section">
             <h2 className={styles.title}>Reviews</h2>
             <div className={styles.reviewsVideos}>
                 {videos.map((video, i) => {
@@ -57,9 +67,14 @@ function Reviews() {
                     onSwiper={setSlider}
                 >
                     {videos.map((video, i) => {
+                        let slideType = i%2 === 0 ? "slide-up" : "slide-down"
                         return (
-                            <SwiperSlide key={i} >
-                                <a href={video.url} className={styles.video}>
+                            <SwiperSlide key={i} className={styles.reviewsSliderItem} >
+                                <a
+                                    data-aos={ slideType }
+                                    href={video.url}
+                                    className={styles.video}
+                                >
                                     <img src={video.preview} alt=""/>
                                     <span className={styles.hoverBg}>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88" fill="none">

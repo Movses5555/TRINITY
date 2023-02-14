@@ -38,7 +38,7 @@ function Advantages() {
                     >
                         <span></span>
                         <img src={item.img} alt=""/>
-                        <p>{item.text}</p>
+                        <p data-aos='slide-left'>{item.text}</p>
                     </div>
                     )
                 })}

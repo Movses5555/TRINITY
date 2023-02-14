@@ -9,7 +9,7 @@ function Discount() {
     return (
         <section
             className={styles.discount}
-            data-aos="zoom-out" 
+            data-aos="zoom-in" 
             data-aos-once="false"
             data-aos-mirror="true"
         >

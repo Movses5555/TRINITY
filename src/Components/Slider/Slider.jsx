@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {SwiperSlide, Swiper} from "swiper/react";
 import 'swiper/css';
 import {Controller, EffectCoverflow, EffectFade, Thumbs} from "swiper";
@@ -9,11 +9,21 @@ import carOffer3 from '../../assets/img/carOffer3.jpg';
 import carOffer4 from '../../assets/img/carOffer4.jpg';
 import styles from './Slider.module.scss';
 import {NavLink} from "react-router-dom";
+import { GetScrollPosition } from '../../helpers/getScrollPosition';
+import Aos from 'aos';
 
 function Slider() {
     const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
     const [slider, setSlider] = React.useState(null);
-    
+
+    const scrollTop = GetScrollPosition();
+    useEffect(() => {
+        let sliderSection = document.getElementById('slider-section');
+        if(!!sliderSection && scrollTop > sliderSection?.offsetTop ) {
+            Aos.init();
+        }
+    }, [scrollTop])
+
     const carsArray = [
         {image: carImage, carTitle: 'Audi', carSubtitle: 'Huracan EVO Spyder RS6', price: '2 400'},
         {image: carOffer1, carTitle: 'Lamborghini', carSubtitle: 'Urus', price: '2 400'},
@@ -25,11 +35,13 @@ function Slider() {
     const [searchValue, setValue] = React.useState('');
     const [activeIndex, setIndex] = React.useState(0);
 
-
     return (
-        <section className={styles.slider}>
+        <section className={styles.slider} id='slider-section'>
             <div className={styles.sliderWrap}>
-                <div className={styles.imageSlider} data-aos="slide-right">
+                <div
+                    className={styles.imageSlider} 
+                    data-aos="slide-right"
+                >
                     <Swiper
                         modules={[EffectFade, EffectCoverflow, Thumbs, Controller]}
                         direction={'vertical'}
@@ -55,7 +67,10 @@ function Slider() {
                         }
                     </Swiper>
                 </div>
-                <div className={styles.rightSide} data-aos="slide-left">
+                <div
+                    className={styles.rightSide}
+                    data-aos="slide-left"
+                >
                     <h2 className={styles.title}>Most Popular</h2>
                     <div className={styles.inputWrap}>
                         <input placeholder={'Car search'} value={searchValue} onChange={(e) => setValue(e.target.value)} type="text" className={styles.carSearch}/>

@@ -49,10 +49,12 @@ function About() {
                     })
                 }
             </div>
-            <div className={styles.aboutText}>
+            <div className={styles.aboutText} data-aos="slide-down">
                 <p>I’m with cars for over 18 years. My auto passion and attention to details will make your experience with us second to none. Guaranteed.</p>
             </div>
-            <div className={styles.aboutTextAuthor}>Kirill Aliev, MBA<span><br/>CEO Trinity car rental boutique</span></div>
+            <div className={styles.aboutTextAuthor} data-aos="slide-up">
+                Kirill Aliev, MBA<span><br/>CEO Trinity car rental boutique</span>
+            </div>
         </section>
     );
 }

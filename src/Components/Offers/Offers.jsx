@@ -6,7 +6,7 @@ import offerImg3 from '../../assets/img/carOffer3.jpg';
 import offerImg4 from '../../assets/img/carOffer4.jpg';
 import {NavLink} from "react-router-dom";
 
-function Offers() {    
+function Offers() {
     const tabs = [
         'Special Offer', 'New car', 'Most Popular', 'Daily'
     ]
@@ -50,15 +50,11 @@ function Offers() {
             </div>
             <div className={styles.offersWrap}>
                 {offers.map((item, i) => {
-                    let aosName = "slide-up";
-                    if(i%2 === 0) {
-                        aosName = "slide-up"
-                    }
                     return (
                         <div
                             key={i}
                             className={styles.offer}
-                            data-aos={aosName}
+                            data-aos="slide-up"
                             data-aos-offset="200"
                         >
                             <img src={item.img} alt="" className={styles.offerImg}/>

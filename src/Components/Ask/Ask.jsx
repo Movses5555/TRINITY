@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Ask.module.scss';
 import Iframe from "react-iframe";
+import { GetScreenWidth } from '../../helpers/getScreenWidth';
+import { GetScrollPosition } from '../../helpers/getScrollPosition';
+import Aos from 'aos';
+
 
 function Ask() {
+    const scrollTop = GetScrollPosition();
+    useEffect(() => {
+        let askSection = document.getElementById('ask-section');
+        if(!!askSection && scrollTop > askSection?.offsetTop ) {
+            Aos.init();
+        }
+    }, [scrollTop])
+
+    const screenWidth = GetScreenWidth();
+    let isMobile = !!(screenWidth < 1024);
+
     return (
-        <section className={styles.ask}>
+        <section className={styles.ask} id='ask-section'>
             <div className={styles.askWrap}>
                 <div className={styles.mapWrapper} data-aos="slide-right" >
                     <Iframe
@@ -14,13 +29,25 @@ function Ask() {
                         referrerPolicy="no-referrer-when-downgrade">
                     </Iframe>
                 </div>
-                <div className={styles.askForm}  data-aos="slide-left">
+                <div className={styles.askForm} 
+                    data-aos={ !!isMobile ? '' : "slide-left"}
+                >
                     <p className={styles.title}>Ask us anything</p>
-                    <input type="text" placeholder={'Name'} className={styles.input}/>
-                    <input type="email" placeholder={'E-mail'} className={styles.input}/>
-                    <input type="tel" placeholder={'+7 (999) 999 - 99 - 99'} className={styles.input}/>
-                    <textarea placeholder={'Message'}></textarea>
-                    <button className={styles.formSend}>Send the request</button>
+                    <input type="text" placeholder={'Name'} className={styles.input} 
+                        data-aos={ !!isMobile ? "slide-left" : "" }
+                    />
+                    <input type="email" placeholder={'E-mail'} className={styles.input} 
+                        data-aos={ !!isMobile ? "slide-right" : "" }
+                    />
+                    <input type="tel" placeholder={'+7 (999) 999 - 99 - 99'} className={styles.input} 
+                        data-aos={ !!isMobile ? "slide-left" : "" } 
+                    />
+                    <textarea placeholder={'Message'} 
+                        data-aos={ !!isMobile ? "slide-right" : "" } 
+                    ></textarea>
+                    <button className={styles.formSend} 
+                        data-aos={ !!isMobile ? "slide-left" : "" } 
+                    >Send the request</button>
                 </div>
             </div>
         </section>

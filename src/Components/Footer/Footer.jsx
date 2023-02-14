@@ -11,49 +11,59 @@ import logo7 from '../../assets/img/logo7.svg';
 import logo8 from '../../assets/img/logo8.svg';
 import logo9 from '../../assets/img/logo9.svg';
 import logo10 from '../../assets/img/logo10.svg';
+import { GetScreenWidth } from '../../helpers/getScreenWidth';
+import { GetScrollPosition } from '../../helpers/getScrollPosition';
 import Aos from 'aos';
-import 'aos/dist/aos.css'
 
 function Footer() {
+    const scrollTop = GetScrollPosition();
+    const screenWidth = GetScreenWidth();
+
     useEffect(() => {
-        Aos.init();
-    }, [])
+        let footer = document.getElementById('footer');
+        if(!!footer && scrollTop > footer?.offsetTop ) {
+            Aos.init();
+        }
+    }, [scrollTop])
+    
 
     const logos = [
         logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, logo10
     ]
 
+    let isMobile = !!(screenWidth < 1024);
+
     return (
-        <footer className={styles.footer}>
+        <footer className={styles.footer} id='footer'>
             <div className={styles.info}>
-                <div className={styles.leftSide} data-aos="slide-right">
+                <div className={styles.leftSide} data-aos={ isMobile ? "" : "slide-right"} >
                     <div className={styles.nav}>
                         <div className={styles.navCol}>
-                            <p className={styles.title}>For Customers</p>
-                            <NavLink to={'/'}><p>About Us</p></NavLink>
-                            <NavLink to={'/'}><p>Conditions</p></NavLink>
-                            <NavLink to={'/'}><p>Testimonials</p></NavLink>
-                            <NavLink to={'/'}><p>Articles</p></NavLink>
-                            <NavLink to={'/'}><p>Contacts</p></NavLink>
+                            <p className={styles.title} data-aos={ isMobile ? "slide-down" : ""} >For Customers</p>
+                            <NavLink to={'/'} data-aos={ isMobile ? "slide-right" : ""} ><p>About Us</p></NavLink>
+                            <NavLink to={'/'} data-aos={ isMobile ? "slide-left" : ""} ><p>Conditions</p></NavLink>
+                            <NavLink to={'/'} data-aos={ isMobile ? "slide-right" : ""} ><p>Testimonials</p></NavLink>
+                            <NavLink to={'/'} data-aos={ isMobile ? "slide-left" : ""} ><p>Articles</p></NavLink>
+                            <NavLink to={'/'} data-aos={ isMobile ? "slide-right" : ""} ><p>Contacts</p></NavLink>
                         </div>
                         <div className={styles.navCol}>
-                            <p className={styles.title}>Car List</p>
-                            <NavLink to={'/'}><p>SUVs</p></NavLink>
-                            <NavLink to={'/'}><p>Convertibles</p></NavLink>
-                            <NavLink to={'/'}><p>Sports Cars</p></NavLink>
-                            <NavLink to={'/'}><p>Premium</p></NavLink>
-                            <NavLink to={'/'}><p>Coupe</p></NavLink>
+                            <p className={styles.title} data-aos={ isMobile ? "slide-down" : ""} >Car List</p>
+                            <NavLink to={'/'} data-aos={ isMobile ? "slide-left" : ""} ><p>SUVs</p></NavLink>
+                            <NavLink to={'/'} data-aos={ isMobile ? "slide-right" : ""} ><p>Convertibles</p></NavLink>
+                            <NavLink to={'/'} data-aos={ isMobile ? "slide-left" : ""} ><p>Sports Cars</p></NavLink>
+                            <NavLink to={'/'} data-aos={ isMobile ? "slide-right" : ""} ><p>Premium</p></NavLink>
+                            <NavLink to={'/'} data-aos={ isMobile ? "slide-left" : ""} ><p>Coupe</p></NavLink>
                         </div>
                         <div className={styles.navCol}>
-                            <p className={styles.title}>Service</p>
-                            <NavLink to={'/'}><p>Car List</p></NavLink>
-                            <NavLink to={'/'}><p>Yacht list</p></NavLink>
-                            <NavLink to={'/'}><p>Chauffeur</p></NavLink>
+                            <p className={styles.title} data-aos={ isMobile ? "slide-down" : ""} >Service</p>
+                            <NavLink to={'/'} data-aos={ isMobile ? "slide-left" : ""} ><p>Car List</p></NavLink>
+                            <NavLink to={'/'} data-aos={ isMobile ? "slide-right" : ""} ><p>Yacht list</p></NavLink>
+                            <NavLink to={'/'} data-aos={ isMobile ? "slide-left" : ""} ><p>Chauffeur</p></NavLink>
                         </div>
                     </div>
                 </div>
-                <div className={styles.rightSide} data-aos="slide-left">
-                    <div className={styles.socials}>
+                <div className={styles.rightSide} data-aos={ isMobile ? "" : "slide-left"}>
+                    <div className={styles.socials}  data-aos={ isMobile ? "slide-left" : ""} >
                         <a href="tel:971585907875" className={styles.tel}>+971 58 590 7875</a>
                         <div className={styles.socialLinks}>
                             <a href="/#" className={`${styles.link} ${styles.telegram}`}>
@@ -72,8 +82,8 @@ function Footer() {
                             </a>
                         </div>
                     </div>
-                    <button className={styles.reqCall}>REQUEST A CALLBACK</button>
-                    <p className={styles.adress}>
+                    <button className={styles.reqCall} data-aos={ isMobile ? "slide-right" : ""} >REQUEST A CALLBACK</button>
+                    <p className={styles.adress} data-aos={ isMobile ? "slide-left" : ""}>
                         24 4th St - Al Quoz - Al Quoz Industrial Area 3 - Dubai
                     </p>
                     <div className={styles.inputWrap}>
@@ -82,7 +92,7 @@ function Footer() {
                     </div>
                 </div>
             </div>
-            <div data-aos="slide-up" >
+            <div data-aos={ isMobile ? "" : "slide-up"} >
                 <div className={styles.partners}>
                     {logos.map((logo, i) => {
                         return (
@@ -94,12 +104,12 @@ function Footer() {
                     <a href="/#">Privacy Policy</a>
                     <p>©2023 TRINITY. All rights reserved</p>
                     <div className={styles.links}>
-                        <a href="/#">
+                        <a href="/#" data-aos={ isMobile ? "slide-right" : ""}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
                                 <path d="M16.3803 5.76336H18.417V2.31836C17.4309 2.21581 16.4401 2.16519 15.4486 2.16669C12.502 2.16669 10.487 3.96502 10.487 7.25836V10.0967H7.16113V13.9534H10.487V23.8334H14.4736V13.9534H17.7886L18.287 10.0967H14.4736V7.63752C14.4736 6.50002 14.777 5.76336 16.3803 5.76336Z" fill="#33B7BC"/>
                             </svg>
                         </a>
-                        <a href="/#">
+                        <a href="/#" data-aos={ isMobile ? "slide-up" : ""}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
                                 <g clipPath="url(#clip0_115_26)">
                                     <path fillRule="evenodd" clipRule="evenodd" d="M13.4062 2.4379C13.2985 2.4379 13.1952 2.4807 13.119 2.55688C13.0428 2.63307 13 2.7364 13 2.84415V17.4691C13 18.5904 12.09 19.5004 10.9688 19.5004C9.8475 19.5004 8.9375 18.5904 8.9375 17.4691C8.9375 16.3479 9.8475 15.4379 10.9688 15.4379C11.0765 15.4379 11.1798 15.3951 11.256 15.3189C11.3322 15.2427 11.375 15.1394 11.375 15.0316V11.7816C11.375 11.6739 11.3322 11.5706 11.256 11.4944C11.1798 11.4182 11.0765 11.3754 10.9688 11.3754C7.605 11.3754 4.875 14.1058 4.875 17.4691C4.875 20.8329 7.605 23.5629 10.9688 23.5629C14.3321 23.5629 17.0625 20.8329 17.0625 17.4691V9.95108C17.9559 10.3555 18.9256 10.5641 19.9062 10.5629H20.7188C20.8265 10.5629 20.9298 10.5201 21.006 10.4439C21.0822 10.3677 21.125 10.2644 21.125 10.1566V6.90665C21.125 6.7989 21.0822 6.69557 21.006 6.61939C20.9298 6.5432 20.8265 6.5004 20.7188 6.5004H19.9062C18.3369 6.5004 17.0625 5.22599 17.0625 3.65665V2.84415C17.0625 2.7364 17.0197 2.63307 16.9435 2.55688C16.8673 2.4807 16.764 2.4379 16.6562 2.4379H13.4062Z" fill="#33B7BC"/>
@@ -111,12 +121,12 @@ function Footer() {
                                 </defs>
                             </svg>
                         </a>
-                        <a href="/#">
+                        <a href="/#" data-aos={ isMobile ? "slide-down" : ""}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
                                 <path d="M25.241 7.90832C25.241 7.69166 24.916 5.95832 24.1577 5.19999C23.1827 4.11666 22.0993 4.00832 21.5577 4.00832H21.4493C18.091 3.79166 13.1077 3.79166 12.9993 3.79166C12.9993 3.79166 7.90768 3.79166 4.54935 4.00832H4.44102C3.89935 4.00832 2.81602 4.11666 1.84102 5.19999C1.08268 6.06666 0.757682 7.79999 0.757682 8.01666C0.757682 8.12499 0.541016 10.075 0.541016 12.1333V13.975C0.541016 16.0333 0.757682 17.9833 0.757682 18.0917C0.757682 18.3083 1.08268 20.0417 1.84102 20.8C2.70768 21.775 3.79102 21.8833 4.44102 21.9917H4.76602C6.71602 22.2083 12.6743 22.2083 12.891 22.2083C12.891 22.2083 17.9827 22.2083 21.341 21.9917H21.4493C21.991 21.8833 23.0743 21.775 24.0493 20.8C24.8077 19.9333 25.1327 18.2 25.1327 17.9833C25.1327 17.875 25.3493 15.925 25.3493 13.8667V12.025C25.4577 10.075 25.241 8.01666 25.241 7.90832ZM17.2243 13.2167L10.7243 16.6833C10.616 16.6833 10.616 16.7917 10.5077 16.7917C10.3993 16.7917 10.291 16.7917 10.291 16.6833C10.1827 16.575 10.0743 16.4667 10.0743 16.25V9.20832C10.0743 8.99166 10.1827 8.88332 10.291 8.77499C10.3993 8.66666 10.616 8.66666 10.8327 8.77499L17.3327 12.2417C17.5493 12.35 17.6577 12.4583 17.6577 12.675C17.6577 12.8917 17.441 13.1083 17.2243 13.2167Z" fill="#33B7BC"/>
                             </svg>
                         </a>
-                        <a href="/#">
+                        <a href="/#" data-aos={ isMobile ? "slide-left" : ""}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                                 <g clipPath="url(#clip0_99_144)">
                                     <path d="M15.125 0H6.875C5.05164 0 3.30295 0.724328 2.01364 2.01364C0.724328 3.30295 0 5.05164 0 6.875L0 15.125C0 16.9484 0.724328 18.697 2.01364 19.9864C3.30295 21.2757 5.05164 22 6.875 22H15.125C16.9484 22 18.697 21.2757 19.9864 19.9864C21.2757 18.697 22 16.9484 22 15.125V6.875C22 5.05164 21.2757 3.30295 19.9864 2.01364C18.697 0.724328 16.9484 0 15.125 0V0ZM19.9375 15.125C19.9375 17.7787 17.7787 19.9375 15.125 19.9375H6.875C4.22125 19.9375 2.0625 17.7787 2.0625 15.125V6.875C2.0625 4.22125 4.22125 2.0625 6.875 2.0625H15.125C17.7787 2.0625 19.9375 4.22125 19.9375 6.875V15.125Z" fill="#33B7BC"/>
