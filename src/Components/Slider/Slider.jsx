@@ -34,6 +34,13 @@ function Slider() {
 
     const [searchValue, setValue] = React.useState('');
     const [activeIndex, setIndex] = React.useState(0);
+    const [activeTimeoutIndex, setTimeoutIndex] = React.useState(0);
+
+    const changeTimeoutIndex = (index) => {
+        setTimeout(() => {
+            setTimeoutIndex(index)
+        }, 50)
+    }
 
     return (
         <section className={styles.slider} id='slider-section'>
@@ -138,6 +145,7 @@ function Slider() {
                                 slideToClickedSlide={true}
                                 onSlideChange={(slider) => {
                                     setIndex(slider.activeIndex);
+                                    changeTimeoutIndex(slider.activeIndex);
                                     if(thumbsSwiper !== null) {
                                         thumbsSwiper.slideTo(slider.activeIndex)
                                     }
@@ -145,10 +153,15 @@ function Slider() {
                             >
                                 {carsArray.map((car, i) => {
                                     return (
-                                        <SwiperSlide key={i}>
+                                        <SwiperSlide key={i} className={styles.swiperSlide}>
                                             <div className={styles.slideWrap}>
                                                 <p className={`${styles.slideTitle} title`}>{car.carTitle}</p>
                                                 <p className={`${styles.slideSubtitle} subtitle`}>{car.carSubtitle}</p>
+                                                {
+                                                    activeTimeoutIndex === i && (
+                                                        <div className={styles.line}></div>
+                                                    )
+                                                }
                                             </div>
                                         </SwiperSlide>
                                     )

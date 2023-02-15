@@ -35,12 +35,11 @@ function About() {
             <div className={styles.pluses}>
                 {
                     mockData?.map((item, i) => {
-                        let slideType = i === 0 ? isMobile ? "slide-down" : "slide-right" : i === 2 ? isMobile ? "slide-up" : "slide-left" : "";
                         return (
                             <div
                                 className={styles.plus}
                                 key={i}
-                                data-aos={slideType}
+                                data-aos="zoom-in"
                             >
                                 <div className={styles.titleRow}>
                                     <p className={styles.PlusCount}>{item.count}</p>

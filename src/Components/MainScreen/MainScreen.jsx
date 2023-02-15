@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './MainScreen.module.scss';
-import MainBgMobile from '../../assets/img/main-bg-mobile.svg';
-import MainBgDesktop from '../../assets/img/main-bg-desktop.svg';
+import MainBgMobile from '../../assets/img/main-bg-mobile.jpg';
+import MainBgDesktop from '../../assets/img/main-bg-desktop.jpg';
 import { GetScreenWidth } from '../../helpers/getScreenWidth';
 
 function MainScreen() {
