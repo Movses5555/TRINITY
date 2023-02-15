@@ -92,7 +92,7 @@ function Footer() {
                     </div>
                 </div>
             </div>
-            <div data-aos={ isMobile ? "" : "slide-up"} >
+            <div >
                 <div className={styles.partners}>
                     {logos.map((logo, i) => {
                         return (
