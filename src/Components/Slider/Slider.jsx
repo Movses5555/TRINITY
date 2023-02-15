@@ -102,10 +102,10 @@ function Slider() {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="20" viewBox="0 0 23 20" fill="none">
                                     <circle cx="10" cy="10" r="10" fill="#33B7BC"/>
                                     <circle cx="10" cy="10" r="7" fill="white"/>
-                                    <circle cx="18" cy="13" r="5" fill="#161516"/>
+                                    <circle cx="10" cy="10" r="5" fill="#161516"/>
                                 </svg>
                                 <svg className={styles.DotLine} xmlns="http://www.w3.org/2000/svg" width="263" height="74" viewBox="0 0 263 74" fill="none">
-                                    <path d="M1.5 1.5L61.5 72H261.5" stroke="#2C2C2C" strokeWidth="3" strokeLinecap="round"/>
+                                    <path d="M1.5 1.5L61.5 72H261.5" stroke="#33B7BC" strokeWidth="3" strokeLinecap="round"/>
                                 </svg>
                             </span>
                             <button onClick={() => {

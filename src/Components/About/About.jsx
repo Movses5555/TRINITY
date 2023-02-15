@@ -3,6 +3,7 @@
 import React from 'react';
 import styles from './About.module.scss';
 import sprite from '../../assets/img/bgSpriteAbout.svg';
+import { GetScreenWidth } from '../../helpers/getScreenWidth';
 
 const mockData = [
     {
@@ -23,6 +24,8 @@ const mockData = [
 ]
 
 function About() {
+    const screenWidth = GetScreenWidth();
+    let isMobile = screenWidth < 1024;
     return (
         <section id='about-section' className={styles.about}>
             <span className={styles.triangle}>
@@ -32,7 +35,7 @@ function About() {
             <div className={styles.pluses}>
                 {
                     mockData?.map((item, i) => {
-                        let slideType = i === 0 ? "slide-right" : i === 2 ? "slide-left" : "";
+                        let slideType = i === 0 ? isMobile ? "slide-down" : "slide-right" : i === 2 ? isMobile ? "slide-up" : "slide-left" : "";
                         return (
                             <div
                                 className={styles.plus}
@@ -49,10 +52,10 @@ function About() {
                     })
                 }
             </div>
-            <div className={styles.aboutText} data-aos="slide-down">
+            <div className={styles.aboutText} data-aos={ isMobile ? "slide-down" : "slide-left" }>
                 <p>I’m with cars for over 18 years. My auto passion and attention to details will make your experience with us second to none. Guaranteed.</p>
             </div>
-            <div className={styles.aboutTextAuthor} data-aos="slide-up">
+            <div className={styles.aboutTextAuthor} data-aos={ isMobile ? "slide-up" : "slide-right" }>
                 Kirill Aliev, MBA<span><br/>CEO Trinity car rental boutique</span>
             </div>
         </section>

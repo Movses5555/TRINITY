@@ -38,32 +38,98 @@ function Footer() {
             <div className={styles.info}>
                 <div className={styles.leftSide} data-aos={ isMobile ? "" : "slide-right"} >
                     <div className={styles.nav}>
-                        <div className={styles.navCol}>
-                            <p className={styles.title} data-aos={ isMobile ? "slide-down" : ""} >For Customers</p>
-                            <NavLink to={'/'} data-aos={ isMobile ? "slide-right" : ""} ><p>About Us</p></NavLink>
-                            <NavLink to={'/'} data-aos={ isMobile ? "slide-left" : ""} ><p>Conditions</p></NavLink>
-                            <NavLink to={'/'} data-aos={ isMobile ? "slide-right" : ""} ><p>Testimonials</p></NavLink>
-                            <NavLink to={'/'} data-aos={ isMobile ? "slide-left" : ""} ><p>Articles</p></NavLink>
-                            <NavLink to={'/'} data-aos={ isMobile ? "slide-right" : ""} ><p>Contacts</p></NavLink>
+                        <div className={styles.navCol} id='for_customers'>
+                            <p 
+                                className={styles.title} 
+                                data-aos={ isMobile ? "slide-down" : ""}
+                                data-aos-anchor="#for_customers" 
+                            >For Customers</p>
+                            <NavLink 
+                                to={'/'} 
+                                data-aos={ isMobile ? "slide-right" : ""} 
+                                data-aos-anchor="#for_customers" 
+                            ><p>About Us</p></NavLink>
+                            <NavLink 
+                                to={'/'} 
+                                data-aos={ isMobile ? "slide-left" : ""} 
+                                data-aos-anchor="#for_customers" 
+                            ><p>Conditions</p></NavLink>
+                            <NavLink 
+                                to={'/'} 
+                                data-aos={ isMobile ? "slide-right" : ""}
+                                data-aos-anchor="#for_customers" 
+                             ><p>Testimonials</p></NavLink>
+                            <NavLink 
+                                to={'/'} 
+                                data-aos={ isMobile ? "slide-left" : ""} 
+                                data-aos-anchor="#for_customers" 
+                            ><p>Articles</p></NavLink>
+                            <NavLink 
+                                to={'/'} 
+                                data-aos={ isMobile ? "slide-right" : ""} 
+                                data-aos-anchor="#for_customers" 
+                            ><p>Contacts</p></NavLink>
                         </div>
-                        <div className={styles.navCol}>
-                            <p className={styles.title} data-aos={ isMobile ? "slide-down" : ""} >Car List</p>
-                            <NavLink to={'/'} data-aos={ isMobile ? "slide-left" : ""} ><p>SUVs</p></NavLink>
-                            <NavLink to={'/'} data-aos={ isMobile ? "slide-right" : ""} ><p>Convertibles</p></NavLink>
-                            <NavLink to={'/'} data-aos={ isMobile ? "slide-left" : ""} ><p>Sports Cars</p></NavLink>
-                            <NavLink to={'/'} data-aos={ isMobile ? "slide-right" : ""} ><p>Premium</p></NavLink>
-                            <NavLink to={'/'} data-aos={ isMobile ? "slide-left" : ""} ><p>Coupe</p></NavLink>
+                        <div className={styles.navCol} id='car_list'>
+                            <p 
+                                className={styles.title} 
+                                data-aos={ isMobile ? "slide-down" : ""} 
+                                data-aos-anchor="#car_list" 
+                            >Car List</p>
+                            <NavLink 
+                                to={'/'} 
+                                data-aos={ isMobile ? "slide-left" : ""} 
+                                data-aos-anchor="#car_list" 
+                            ><p>SUVs</p></NavLink>
+                            <NavLink 
+                                to={'/'} 
+                                data-aos={ isMobile ? "slide-left" : ""}
+                                data-aos-anchor="#car_list" 
+                                data-aos-offset="50px"
+                            ><p>Convertibles</p></NavLink>
+                            <NavLink 
+                                to={'/'} 
+                                data-aos={ isMobile ? "slide-right" : ""}
+                                data-aos-anchor="#car_list" 
+                                data-aos-offset="50px"
+                            ><p>Sports Cars</p></NavLink>
+                            <NavLink 
+                                to={'/'} 
+                                data-aos={ isMobile ? "slide-right" : ""}
+                                data-aos-anchor="#car_list" 
+                            ><p>Premium</p></NavLink>
+                            <NavLink
+                                to={'/'} 
+                                data-aos={ isMobile ? "slide-left" : ""}
+                                data-aos-anchor="#car_list" 
+                            ><p>Coupe</p></NavLink>
                         </div>
-                        <div className={styles.navCol}>
-                            <p className={styles.title} data-aos={ isMobile ? "slide-down" : ""} >Service</p>
-                            <NavLink to={'/'} data-aos={ isMobile ? "slide-left" : ""} ><p>Car List</p></NavLink>
-                            <NavLink to={'/'} data-aos={ isMobile ? "slide-right" : ""} ><p>Yacht list</p></NavLink>
-                            <NavLink to={'/'} data-aos={ isMobile ? "slide-left" : ""} ><p>Chauffeur</p></NavLink>
+                        <div className={styles.navCol} id='service'>
+                            <p 
+                                className={styles.title} 
+                                data-aos={ isMobile ? "slide-down" : ""} 
+                                data-aos-anchor="#service" 
+                            >Service</p>
+                            <NavLink 
+                                to={'/'} 
+                                data-aos={ isMobile ? "slide-left" : ""} 
+                                data-aos-anchor="#service" 
+                            ><p>Car List</p></NavLink>
+                            <NavLink 
+                                to={'/'} 
+                                data-aos={ isMobile ? "slide-right" : ""} 
+                                data-aos-anchor="#service" 
+                            > <p>Yacht list</p></NavLink>
+                            <NavLink
+                                to={'/'} 
+                                data-aos={ isMobile ? "slide-left" : ""} 
+                                data-aos-anchor="#service" 
+                            > <p>Chauffeur</p> </NavLink>
                         </div>
                     </div>
                 </div>
                 <div className={styles.rightSide} data-aos={ isMobile ? "" : "slide-left"}>
-                    <div className={styles.socials}  data-aos={ isMobile ? "slide-left" : ""} >
+                    <div className={styles.socials} data-aos={ isMobile ? "slide-down" : ""} >
                         <a href="tel:971585907875" className={styles.tel}>+971 58 590 7875</a>
                         <div className={styles.socialLinks}>
                             <a href="/#" className={`${styles.link} ${styles.telegram}`}>
@@ -83,7 +149,7 @@ function Footer() {
                         </div>
                     </div>
                     <button className={styles.reqCall} data-aos={ isMobile ? "slide-right" : ""} >REQUEST A CALLBACK</button>
-                    <p className={styles.adress} data-aos={ isMobile ? "slide-left" : ""}>
+                    <p className={styles.adress} data-aos={ isMobile ? "slide-up" : ""}>
                         24 4th St - Al Quoz - Al Quoz Industrial Area 3 - Dubai
                     </p>
                     <div className={styles.inputWrap}>

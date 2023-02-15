@@ -1,12 +1,19 @@
 import React from 'react';
 import styles from './MainScreen.module.scss';
-import MainBg from '../../assets/img/main-bg.jpg';
+import MainBgMobile from '../../assets/img/main-bg-mobile.svg';
+import MainBgDesktop from '../../assets/img/main-bg-desktop.svg';
+import { GetScreenWidth } from '../../helpers/getScreenWidth';
 
 function MainScreen() {
+  const screenWidth = GetScreenWidth();
   return (
     <div className={styles.main}>
       <div className={styles.background} >
-        <img src={MainBg} alt='main-bg' data-aos="zoom-out" />
+        <div className={styles.gradient}></div>
+        <img src={ screenWidth > 850 ? MainBgDesktop : MainBgMobile } alt='main-bg'  />
+        <div className={styles.segmentWrapper}>
+          <div className={styles.segment}></div>
+        </div>
       </div>
       <div className={styles.mainContent}>
         <p className={styles.title}>Dubai</p>

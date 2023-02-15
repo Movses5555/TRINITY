@@ -29,25 +29,13 @@ function Ask() {
                         referrerPolicy="no-referrer-when-downgrade">
                     </Iframe>
                 </div>
-                <div className={styles.askForm} 
-                    data-aos={ !!isMobile ? '' : "slide-left"}
-                >
-                    <p className={styles.title}>Ask us anything</p>
-                    <input type="text" placeholder={'Name'} className={styles.input} 
-                        data-aos={ !!isMobile ? "slide-left" : "" }
-                    />
-                    <input type="email" placeholder={'E-mail'} className={styles.input} 
-                        data-aos={ !!isMobile ? "slide-right" : "" }
-                    />
-                    <input type="tel" placeholder={'+7 (999) 999 - 99 - 99'} className={styles.input} 
-                        data-aos={ !!isMobile ? "slide-left" : "" } 
-                    />
-                    <textarea placeholder={'Message'} 
-                        data-aos={ !!isMobile ? "slide-right" : "" } 
-                    ></textarea>
-                    <button className={styles.formSend} 
-                        data-aos={ !!isMobile ? "slide-left" : "" } 
-                    >Send the request</button>
+                <div className={styles.askForm} data-aos={ !!isMobile ? '' : "slide-left"}>
+                    <p className={styles.title} data-aos={ !!isMobile ? "slide-up" : "" } >Ask us anything</p>
+                    <input type="text" placeholder={'Name'} className={styles.input} data-aos={ !!isMobile ? "slide-up" : "" } />
+                    <input type="email" placeholder={'E-mail'} className={styles.input} data-aos={ !!isMobile ? "slide-up" : "" } />
+                    <input type="tel" placeholder={'+7 (999) 999 - 99 - 99'} className={styles.input} data-aos={ !!isMobile ? "slide-up" : "" } />
+                    <textarea placeholder={'Message'} data-aos={ !!isMobile ? "slide-up" : "" }></textarea>
+                    <button className={styles.formSend} data-aos={ !!isMobile ? "slide-up" : "" } >Send the request</button>
                 </div>
             </div>
         </section>

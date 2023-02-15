@@ -6,7 +6,9 @@
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
-    min-width: 1000px;
+    @media screen and (max-width: 850px) {
+      min-width: 100%;
+    }
     .item{
       font-weight: 500;
       font-size: 40px;
@@ -43,7 +45,8 @@
       }
 
       &:hover {
-        color: #F2F2F2;
+        cursor: pointer;
+        color: #33B7BC;
       }
 
       &.active {

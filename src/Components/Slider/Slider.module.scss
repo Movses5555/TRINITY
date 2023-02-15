@@ -74,6 +74,9 @@
         width: 100%;
         .slideWrap {
           cursor: pointer;
+          &:hover {
+            color: #33B7BC;
+          }
         }
         .swiper {
           height: 500px;
@@ -110,7 +113,7 @@
       .DotLine {
         position: absolute;
         top: 10px;
-        left: 17px;
+        left: 10px;
       }
     }
 
