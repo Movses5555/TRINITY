@@ -44,6 +44,8 @@
       border: none;
       cursor: pointer;
       position: relative;
+      min-width: 200px;
+      user-select: none;
       @media screen and (max-width: 850px){
         font-size: 16px;
         margin: 0 20px;
@@ -56,6 +58,7 @@
       p {
         position: relative;
         z-index: 100;
+        width: auto;
       }
 
       &:after {
@@ -172,29 +175,27 @@
     }
   }
 
-  .viewAll {
-    width: 350px;
-    height: 72px;
-    background: #33B7BC;
-    border-radius: 10px;
-    margin: 60px auto 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    position: absolute;
-    bottom: -130px;
-    left: calc(50% - 175px);
-    @media screen and (max-width: 850px){
-      bottom: -100px;
-      width: 320px;
-      height: 60px;
-      font-size: 15px;
-      left: calc(50% - 160px);
-
+  .viewAllWrapper {
+    width: 100%;
+    padding: 0 20px;
+    .viewAll {
+      max-width: 350px;
+      height: 72px;
+      background: #33B7BC;
+      border-radius: 10px;
+      margin: 60px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      @media screen and (max-width: 850px){
+        max-width: 320px;
+        height: 60px;
+        font-size: 15px;
+      }
     }
   }
 }

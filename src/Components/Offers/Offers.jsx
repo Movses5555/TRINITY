@@ -6,10 +6,21 @@ import offerImg3 from '../../assets/img/carOffer3.jpg';
 import offerImg4 from '../../assets/img/carOffer4.jpg';
 import {NavLink} from "react-router-dom";
 
-function Offers() {
-    const tabs = [
+function Offers({
+    isCarList = false,
+}) {
+    const MainTabs = [
         'Special Offer', 'New car', 'Most Popular', 'Daily'
     ]
+    const CarListTabs = [
+        "All Cars",
+        "SUVs",
+        // "Convertibles",
+        // "Sports Cars",
+        "Coupe", "Premium"
+    ]
+
+    let tabs = !!isCarList ? CarListTabs : MainTabs;
 
     const offers = [
         {img: offerImg1, title: 'Lamborghini Urus'},
@@ -64,7 +75,9 @@ function Offers() {
                     )
                 })}
             </div>
-            <NavLink className={styles.viewAll} to={'/'}>View all</NavLink>
+            <div className={styles.viewAllWrapper}>
+                <NavLink className={styles.viewAll} to={'/'}>View all</NavLink>
+            </div>
         </section>
     );
 }
