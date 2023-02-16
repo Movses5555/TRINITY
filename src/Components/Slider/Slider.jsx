@@ -39,7 +39,7 @@ function Slider() {
     const changeTimeoutIndex = (index) => {
         setTimeout(() => {
             setTimeoutIndex(index)
-        }, 50)
+        }, 200)
     }
 
     return (
@@ -158,7 +158,7 @@ function Slider() {
                                                 <p className={`${styles.slideTitle} title`}>{car.carTitle}</p>
                                                 <p className={`${styles.slideSubtitle} subtitle`}>{car.carSubtitle}</p>
                                                 {
-                                                    activeTimeoutIndex === i && (
+                                                    activeTimeoutIndex === i && activeIndex === i && (
                                                         <div className={styles.line}></div>
                                                     )
                                                 }

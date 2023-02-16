@@ -4,13 +4,16 @@
     display: none;
   }
   .swiperSlide {
+    margin-left: 20px;
     .line {
       position: static !important;
       height: 2px !important;
-      width: 135px !important;
-      border-bottom: 1px solid #33b7bc;
+      width: 235px !important;
+      border-bottom: 4px solid #33b7bc;
       border-radius: 10px;
-      margin-top: 9px;
+      margin-top: 8px;
+      margin-right: 5px;
+      margin-left: -49px;
       box-shadow: 
             0 0 0.5rem #33B7BC,
             0 0 0.8rem #33B7BC,
@@ -84,7 +87,7 @@
         }
       }
       .carSlider {
-        margin-left: 50px;
+        margin-left: 37px;
         width: 100%;
         .slideWrap {
           cursor: pointer;
