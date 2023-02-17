@@ -7,7 +7,7 @@ export const Layout = ({children}) => {
   const [menuStatus, setMenuStatus] = React.useState(false);
   return (
     <main className={'main'} style={menuStatus ? {height: '100vh', overflow: 'hidden'} : null}>
-      {menuStatus ? <MenuModal/> : null}
+      {menuStatus ? <MenuModal setMenuStatus={setMenuStatus}/> : null}
       <div className="container">
         <Header setMenuStatus={setMenuStatus} menuStatus={menuStatus}/>
         {children}

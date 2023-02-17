@@ -2,21 +2,21 @@ import React from 'react';
 import styles from './MenuModal.module.scss';
 import {NavLink} from "react-router-dom";
 
-function MenuModal() {
+function MenuModal({setMenuStatus}) {
     return (
         <div className={styles.menu}>
             <div className={styles.content}>
                 <div className={styles.col}>
-                    <NavLink to={'/'}><p>Car List</p></NavLink>
-                    <NavLink to={'/'}><p>Yacht list</p></NavLink>
-                    <NavLink to={'/'}><p>Chauffeur</p></NavLink>
-                    <NavLink to={'/'}><p>Conditions</p></NavLink>
+                    <NavLink to={'/car-list'} onClick={() => setMenuStatus(false)}><p>Car List</p></NavLink>
+                    <NavLink to={'/yacht-list'} onClick={() => setMenuStatus(false)}><p>Yacht list</p></NavLink>
+                    <NavLink to={'/chauffeur-list'} onClick={() => setMenuStatus(false)}><p>Chauffeur</p></NavLink>
+                    <NavLink to={'/'} onClick={() => setMenuStatus(false)}><p>Conditions</p></NavLink>
                 </div>
                 <div className={styles.col}>
-                    <NavLink to={'/'}><p>Articles</p></NavLink>
-                    <NavLink to={'/'}><p>About Us</p></NavLink>
-                    <NavLink to={'/'}><p>Contacts</p></NavLink>
-                    <NavLink to={'/'}><p>Testimonials</p></NavLink>
+                    <NavLink to={'/'} onClick={() => setMenuStatus(false)}><p>Articles</p></NavLink>
+                    <NavLink to={'/'} onClick={() => setMenuStatus(false)}><p>About Us</p></NavLink>
+                    <NavLink to={'/'} onClick={() => setMenuStatus(false)}><p>Contacts</p></NavLink>
+                    <NavLink to={'/'} onClick={() => setMenuStatus(false)}><p>Testimonials</p></NavLink>
                 </div>
             </div>
             <div className={styles.bottom}>
