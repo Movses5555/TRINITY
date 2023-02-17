@@ -1,0 +1,112 @@
+.carRentalConditions {
+    padding-top: 300px;
+    margin-bottom: 260px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    @media screen and (max-width: 850px){
+        padding-top: 127px;
+        margin-bottom: 80px;
+    }
+    .carRentalConditionsContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .title {
+            font-weight: 500;
+            font-size: 70px;
+            line-height: 90px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+            margin-top: 20px;
+            
+            @media screen and (max-width: 850px) {
+                font-size: 40px;
+                line-height: 48px;
+            }
+        }
+        .description {
+            font-weight: 400;
+            font-size: 26px;
+            line-height: 32px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+            margin-top: 50px;
+        }
+        .info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .infoContent {
+                .infoTopContent {
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: center;
+                    margin-top: 32px;
+                    margin-bottom: 4px;
+                    span {
+                        font-weight: 300;
+                        font-size: 16px;
+                        line-height: 26px;
+                        display: flex;
+                        align-items: center;
+                        text-align: center;
+                        color: #FFFFFF;
+                    }
+                    p {
+                        font-weight: 300;
+                        font-size: 40px;
+                        line-height: 48px;
+                        display: flex;
+                        align-items: center;
+                        text-align: center;
+                        color: #FFFFFF;
+                        margin-inline: 8px;
+                    }
+                }
+                .infoBottomContent {
+                    display: flex;
+                    justify-content: center;
+                    span {
+                        font-weight: 500;
+                        font-size: 18px;
+                        line-height: 24px;
+                        display: flex;
+                        align-items: center;
+                        text-align: center;
+                        color: #535965;
+                    }
+                }
+            }
+            .verticalLine {
+                margin-inline: 50px;
+                margin-top: 20px;
+                width: 0;
+                height: 53px;
+                border: 1px solid #2C2F3D;
+                @media screen and (max-width: 850px){
+                    margin-inline: 28px;
+                }
+            }
+        }
+    }
+    .questionsWrapper {
+        margin-top: 80px;
+        display: flex;
+        justify-content: center;
+        @media screen and (max-width: 850px){
+            margin-top: 50px;
+        }
+        .questions {
+            margin-inline: 20px;
+            max-width: 960px;
+            width: 100%;
+
+        }
+    }
+}

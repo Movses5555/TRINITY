@@ -1,0 +1,54 @@
+.questionsItem {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(108.31deg, rgba(17, 27, 35, 0.3) 3.3%, rgba(21, 23, 28, 0.3) 89.67%);
+    border: 1.5px solid #27323D;
+    border-radius: 20px;
+    padding: 39px 75px 39px 39px;
+    margin-bottom: 25px;
+    @media screen and (max-width: 850px){
+        padding: 24px 19px 19px;
+    }
+    .closeOpenButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        
+        @media screen and (max-width: 850px){
+            top: 10px;
+            right: 10px;
+        }
+        img {
+            width: 20px;
+            height: 20px;
+            @media screen and (max-width: 850px){
+                width: 16px;
+                height: 16px;
+            }
+        }
+    }
+    .title {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 22px;
+        display: flex;
+        align-items: center;
+        color: #FFFFFF;
+        padding-right: 30px;
+    }
+    .description {
+        margin-top: 26px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        color: #C6CDDA;
+    }
+}

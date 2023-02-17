@@ -10,13 +10,13 @@ function MenuModal({setMenuStatus}) {
                     <NavLink to={'/car-list'} onClick={() => setMenuStatus(false)}><p>Car List</p></NavLink>
                     <NavLink to={'/yacht-list'} onClick={() => setMenuStatus(false)}><p>Yacht list</p></NavLink>
                     <NavLink to={'/chauffeur-list'} onClick={() => setMenuStatus(false)}><p>Chauffeur</p></NavLink>
-                    <NavLink to={'/'} onClick={() => setMenuStatus(false)}><p>Conditions</p></NavLink>
+                    <NavLink to={'/conditions'} onClick={() => setMenuStatus(false)}><p>Conditions</p></NavLink>
                 </div>
                 <div className={styles.col}>
-                    <NavLink to={'/'} onClick={() => setMenuStatus(false)}><p>Articles</p></NavLink>
-                    <NavLink to={'/'} onClick={() => setMenuStatus(false)}><p>About Us</p></NavLink>
-                    <NavLink to={'/'} onClick={() => setMenuStatus(false)}><p>Contacts</p></NavLink>
-                    <NavLink to={'/'} onClick={() => setMenuStatus(false)}><p>Testimonials</p></NavLink>
+                    <NavLink to={'/articles'} onClick={() => setMenuStatus(false)}><p>Articles</p></NavLink>
+                    <NavLink to={'/about'} onClick={() => setMenuStatus(false)}><p>About Us</p></NavLink>
+                    <NavLink to={'/contacts'} onClick={() => setMenuStatus(false)}><p>Contacts</p></NavLink>
+                    <NavLink to={'/testimonials'} onClick={() => setMenuStatus(false)}><p>Testimonials</p></NavLink>
                 </div>
             </div>
             <div className={styles.bottom}>

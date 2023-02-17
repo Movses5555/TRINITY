@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Navigation } from '../../Elements/Navigation';
 import styles from './CarListScreen.module.scss';
 
 export const CarListScreen = () =>  {
@@ -12,11 +12,7 @@ export const CarListScreen = () =>  {
         data-aos-delay="50"
         data-aos-duration="1000"
       >
-        <div className={styles.navigation} >
-          <Link to='/' className={styles.link}> Main </Link> 
-          <span>»</span>
-          <span>Car list</span>
-        </div>
+        <Navigation />
         <p className={styles.title} >Car List in Dubai</p>
       </div>
     </div>
