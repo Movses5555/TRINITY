@@ -157,11 +157,6 @@ function Slider() {
                                             <div className={styles.slideWrap}>
                                                 <p className={`${styles.slideTitle} title`}>{car.carTitle}</p>
                                                 <p className={`${styles.slideSubtitle} subtitle`}>{car.carSubtitle}</p>
-                                                {
-                                                    activeTimeoutIndex === i && activeIndex === i && (
-                                                        <div className={styles.line}></div>
-                                                    )
-                                                }
                                             </div>
                                         </SwiperSlide>
                                     )

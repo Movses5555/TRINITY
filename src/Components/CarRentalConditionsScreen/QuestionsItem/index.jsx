@@ -15,11 +15,12 @@ export const QuestionsItem = ({
   }, [])
 
   return (
-    <div className={styles.questionsItem} data-aos="slide-up">
-      <div
-        className={styles.closeOpenButton}
-        onClick={() => setIsOpen(!isOpen) }
-      >
+    <div
+      className={styles.questionsItem}
+      data-aos="slide-up"
+      onClick={() => setIsOpen(!isOpen) }
+    >
+      <div className={styles.closeOpenButton} >
         <img src={isOpen ? CloseIcon : PlusIcon} alt='close_plus' />
       </div>
       <p className={styles.title}>{ title }</p>
