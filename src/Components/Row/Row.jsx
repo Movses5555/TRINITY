@@ -33,14 +33,12 @@ function Row() {
 
     return (
         <section className={styles.Row} id='row-section'>
-            <div className={styles.rowWrap}>
+            <div className={styles.rowWrap} data-aos="zoom-in" >
                 <Swiper slidesPerView={ screenWidth > 850 ? 4 : screenWidth > 450 ? 3 : 2 }>
                     {cars.map((item, i) => {
-                        let slideType = i%2 === 0 ? "slide-up" : "slide-down";
                         return (
                             <SwiperSlide key={i} className={styles.swiperSlide}>
                                 <div
-                                    data-aos={slideType}
                                     onClick={() => setActive(item)}
                                     className={active === item ? `${styles.item} ${styles.active}` : styles.item}
                                 >
