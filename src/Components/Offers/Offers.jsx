@@ -8,6 +8,7 @@ import {NavLink} from "react-router-dom";
 
 function Offers({
     isCarList = false,
+    onClickRent = () => {},
 }) {
     const MainTabs = [
         'Special Offer', 'New car', 'Most Popular', 'Daily'
@@ -70,7 +71,10 @@ function Offers({
                         >
                             <img src={item.img} alt="" className={styles.offerImg}/>
                             <p className={styles.offerTitle}>{item.title}</p>
-                            <button className={styles.rentBtn}>Rent</button>
+                            <button
+                                className={styles.rentBtn}
+                                onClick={() => onClickRent(item)}
+                            >Rent</button>
                         </div>
                     )
                 })}

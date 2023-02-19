@@ -1,0 +1,76 @@
+.specialOffer {
+    padding: 300px 60px 0;
+    margin-bottom: 160px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    @media screen and (max-width: 850px){
+        padding-top: 127px;
+        margin-bottom: 80px;
+    }
+    .specialOfferContent {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .headerContent {
+            .title {
+                font-weight: 500;
+                font-size: 70px;
+                line-height: 90px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                color: #FFFFFF;            
+                @media screen and (max-width: 850px) {
+                    font-size: 40px;
+                    line-height: 48px;
+                }
+            }
+        }
+        .content {
+            width: 100%;
+            margin-top: 100px;
+            .contentItem {
+                width: 100%;
+                height: 100%;
+                margin-bottom: 32px;
+            }
+            .section1 {
+                height: auto;
+                display: flex;
+                .leftContent {
+                    display: flex;
+                    flex-direction: column;
+                    width: calc(42.5% - 16px);
+                    height: 100%;
+                    margin-right: 16px;
+                }
+                .rightContent {
+                    display: flex;
+                    flex-direction: column;                    width: calc(57.5% - 16px);
+                    margin-left: 16px;
+                    .contentItem {
+                        height: 100%;
+                    }
+                }
+            }
+            .section2 {
+                height: auto;
+                display: flex;
+                .leftContent {
+                    display: flex;
+                    flex-direction: column;
+                    width: calc(42.5% - 16px);
+                    margin-right: 16px;
+                }
+                .rightContent {
+                    display: flex;
+                    flex-direction: column;                    width: calc(57.5% - 16px);
+                    margin-left: 16px;
+                }
+            }
+        }
+    }
+}

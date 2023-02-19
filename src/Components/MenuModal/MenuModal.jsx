@@ -11,12 +11,14 @@ function MenuModal({setMenuStatus}) {
                     <NavLink to={'/yacht-list'} onClick={() => setMenuStatus(false)}><p>Yacht list</p></NavLink>
                     <NavLink to={'/chauffeur-list'} onClick={() => setMenuStatus(false)}><p>Chauffeur</p></NavLink>
                     <NavLink to={'/conditions'} onClick={() => setMenuStatus(false)}><p>Conditions</p></NavLink>
+                    <NavLink to={'/dubai-guide'} onClick={() => setMenuStatus(false)}><p>Dubai Guide</p></NavLink>
                 </div>
                 <div className={styles.col}>
                     <NavLink to={'/articles'} onClick={() => setMenuStatus(false)}><p>Articles</p></NavLink>
                     <NavLink to={'/about'} onClick={() => setMenuStatus(false)}><p>About Us</p></NavLink>
                     <NavLink to={'/contacts'} onClick={() => setMenuStatus(false)}><p>Contacts</p></NavLink>
                     <NavLink to={'/testimonials'} onClick={() => setMenuStatus(false)}><p>Testimonials</p></NavLink>
+                    <NavLink to={'/special-offers'} onClick={() => setMenuStatus(false)}><p>Special Offers</p></NavLink>
                 </div>
             </div>
             <div className={styles.bottom}>

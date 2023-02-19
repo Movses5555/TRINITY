@@ -4,6 +4,7 @@ import React from 'react';
 import styles from './About.module.scss';
 import sprite from '../../assets/img/bgSpriteAbout.svg';
 import { GetScreenWidth } from '../../helpers/getScreenWidth';
+import { Navigation } from '../../Elements/Navigation';
 
 const mockData = [
     {
@@ -23,7 +24,9 @@ const mockData = [
     }
 ]
 
-function About() {
+function About({
+    isAboutPage = false,
+}) {
     const screenWidth = GetScreenWidth();
     let isMobile = screenWidth < 1024;
     return (
@@ -31,6 +34,13 @@ function About() {
             <span className={styles.triangle}>
                 <img src={sprite} alt=""/>
             </span>
+            {
+                !!isAboutPage && (
+                    <div className={styles.navigation}>
+                        <Navigation currentPage='About Us' />
+                    </div>
+                )
+            }
             <h2 className={styles.title}>About Us</h2>
             <div className={styles.pluses}>
                 {

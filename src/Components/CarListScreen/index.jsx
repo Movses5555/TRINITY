@@ -12,7 +12,7 @@ export const CarListScreen = () =>  {
         data-aos-delay="50"
         data-aos-duration="1000"
       >
-        <Navigation />
+        <Navigation currentPage='Car ListMain' />
         <p className={styles.title} >Car List in Dubai</p>
       </div>
     </div>

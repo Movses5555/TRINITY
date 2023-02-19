@@ -13,7 +13,7 @@ export const CarRentalConditionsScreen = () =>  {
         data-aos-delay="50"
         data-aos-duration="1000"
       >
-        <Navigation />
+        <Navigation currentPage='Conditions' />
         <p className={styles.title} >Car rental conditions</p>
         <p className={styles.description} >Requirements for Customers</p>
         <div className={styles.info}>

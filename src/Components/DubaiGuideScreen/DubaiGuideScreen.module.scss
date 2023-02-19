@@ -1,0 +1,210 @@
+.dubaiGuide {
+    padding-top: 300px;
+    position: relative;
+    margin-bottom: 100px;
+    @media screen and (max-width: 850px){
+      padding-top: 127px;
+    }
+    .topContent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 80px;
+        @media screen and (max-width: 850px) {
+            margin-bottom: 40px;
+        }
+        .title {
+            font-weight: 500;
+            font-size: 70px;
+            line-height: 90px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #FFFFFF;
+            margin-top: 20px;
+            
+            @media screen and (max-width: 850px) {
+                font-size: 40px;
+                line-height: 48px;
+            }
+        }
+    }
+    .tabs {
+        max-width: 1376px;
+        margin: 0 auto 70px;
+        @media screen and (max-width: 850px){
+            margin-bottom: 20px;
+            max-width: 1180px;
+        }
+        .overflow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            @media screen and (max-width: 850px){
+                width: 525px;
+            }
+        }
+        @media screen and (max-width: 850px){
+            overflow-x: auto;
+            &::-webkit-scrollbar {
+            display: none;
+            }
+            & {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+  
+        .tab {
+            font-weight: 500;
+            font-size: 40px;
+            line-height: 50px;
+            color: #414141;
+            transition: .3s linear;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            min-width: 200px;
+            user-select: none;
+            @media screen and (max-width: 850px){
+                font-size: 16px;
+                margin: 0 20px;
+            }
+            &:hover {
+                color: #F2F2F2;
+            }
+            p {
+                position: relative;
+                z-index: 100;
+                width: auto;
+            }
+            &:after {
+                width: 100%;
+                height: 14px;
+                content: '';
+                background: #33B7BC;
+                left: 0;
+                bottom: 5px;
+                clip-path: polygon(100% -2px, 5px -2px, 0px 11px, 95.48% 11px);
+                position: absolute;
+                opacity: 0;
+                transition: .3s linear;
+                @media screen and (max-width: 850px){
+                    height: 7px;
+                    bottom: 15px;
+                }
+            }
+            &.active {
+                color: #F2F2F2;
+                &:after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+  
+    .dubaiGuideContentWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .cardWrapper {
+            padding: 10px;
+            width: 33.33%;
+            @media screen and (max-width: 1250px) {
+                width: 50%;
+                &:last-child {
+                    display: none;
+                }
+            }
+            @media screen and (max-width: 640px) {
+                width: 100%;
+                padding: 0 0 10px;
+                &:last-child {
+                    display: block;
+                }
+            }
+            .card {
+                position: relative;
+                overflow: hidden;
+                border-radius: 10px;        
+                @media screen and (max-width: 640px) {
+                    border-radius: 0;
+                }
+                .dubaiGuideTitle {
+                    position: absolute;
+                    bottom: 40px;
+                    left: 30px;
+                    z-index: 100;
+                    font-weight: 700;
+                    font-size: 28px;
+                    color: #FFFFFF;
+                    line-height: 34px;
+                    padding-right: 10px;
+                    @media screen and (max-width: 850px){
+                        bottom: 25px;
+                        left: 20px;
+                        font-size: 18px;
+                        line-height: 22px;
+                    }
+
+                    &::after {
+                        width: 100%;
+                        height: 14px;
+                        content: '';
+                        background: #33B7BC;
+                        left: 0;
+                        bottom: 0px;
+                        clip-path: polygon(100% -2px, 5px -2px, 0px 11px, 95.48% 11px);
+                        position: absolute;
+                        opacity: 0;
+                        transition: .3s linear;
+                        z-index: -1;
+                        @media screen and (max-width: 850px){
+                            height: 7px;
+                            bottom: 15px;
+                        }
+                    }
+                    &:hover {
+                        color: #F2F2F2;
+                        &:after {
+                            opacity: 1;
+                        }
+                    }
+                }        
+                .dubaiGuideImg {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+  
+    .viewAllWrapper {
+        width: 100%;
+        padding: 0 20px;
+        .viewAll {
+            max-width: 350px;
+            height: 72px;
+            background: #33B7BC;
+            border-radius: 10px;
+            margin: 60px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            @media screen and (max-width: 850px){
+                max-width: 320px;
+                height: 60px;
+                font-size: 15px;
+            }
+        }
+    }
+}
