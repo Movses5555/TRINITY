@@ -1,0 +1,435 @@
+.carRentModal {
+  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  min-width: 100vw;
+  max-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #2B2B2B;
+  @media screen and (max-width: 1200px){
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    @media screen and (max-width: 1200px){
+      width: 100%;
+      flex-direction: column-reverse;
+      overflow: auto;
+    }
+    .leftContent {
+      width: 44.3%;
+      padding-top: 169px;
+      padding-right: 75px;
+      padding-bottom: 60px;
+      height: 100%;
+      direction: ltr; 
+      @media screen and (max-width: 1200px){
+        width: 100%;
+        height: auto;
+        padding-top: 40px;
+        padding-right: 20px;
+      }
+
+      .titleAndInfo {
+        padding-left: 75px;
+        position: relative;
+        @media screen and (max-width: 1200px){
+          padding-left: 20px;
+        }
+
+        .titleAndInfoButton {
+          display: flex;
+          .title {
+            width: 100%;
+            font-weight: 500;
+            font-size: 52px;
+            line-height: 62px;
+            display: flex;
+            align-items: flex-end;
+            color: #FFFFFF;
+            position: relative;
+            .infoButton {
+              margin-left: 10px;
+              margin-bottom: 10px;
+              width: 44px;
+              height: 44px;
+              min-width: 44px;
+              min-height: 44px;
+              background: #33B7BC;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      .infoWrapper {
+        width: calc(100% - 75px);
+        position: relative;
+        margin: 0 75px 50px;
+        @media screen and (max-width: 1200px){
+          width: calc(100% - 20px);
+          margin-left: 20px;
+        }
+        .info {
+          position: absolute;
+          top: 20px;
+          right: 0;
+          width: 100%;
+          max-width: 700px;
+          background: linear-gradient(108.31deg, #111B23 3.3%, #15171C 89.67%);
+          border: 1px solid #27323D;
+          border-radius: 20px;
+          z-index: 10;
+          display: flex;
+          flex-wrap: wrap;
+
+          &_item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            width: 33.33%;
+            height: 144px;
+            border-right: 1px solid #27323D;
+            border-bottom: 1px solid #27323D;
+            &:nth-child(1) {
+              border-radius: 20px 0 0 0;
+            }
+            &:nth-child(3) {
+              border-radius: 0 20px 0 0;
+            }
+            &:nth-child(4) {
+              border-radius: 0 0 0 20px;
+            }
+            &:nth-child(6) {
+              border-radius: 0 0 20px 0;
+            }
+
+            @media screen and (max-width: 1280px){
+              height: 104px;
+            }
+            @media screen and (max-width: 1024px){
+              width: 50%;
+              border-radius: 0;
+              &:nth-child(3),
+              &:nth-child(4) {
+                border-radius: 0;
+              }
+              &:nth-child(1) {
+                border-radius: 20px 0 0 0;
+              }
+              &:nth-child(2) {
+                border-radius: 0 20px 0 0;
+              }
+              &:nth-child(5) {
+                border-radius: 0 0 0 20px;
+              }
+              &:nth-child(6) {
+                border-radius: 0 0 20px 0;
+              }
+            }
+            &_title {
+              font-weight: 300;
+              font-size: 44px;
+              line-height: 33px;
+              display: flex;
+              justify-content: center;
+              align-items: flex-end;
+              text-align: center;
+              color: #FFFFFF;
+              margin-bottom: 4px;
+            }
+            &_subtitle {
+              font-weight: 300;
+              font-size: 14px;
+              line-height: 14px;
+              text-align: center;
+              color: #FFFFFF;
+            }
+            &_description {
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 17px;
+              display: flex;
+              align-items: center;
+              text-align: center;
+              color: #535965;
+            }
+          }
+        }
+      }
+      .leftContentSectionWrapper {
+        overflow-y: auto;
+        height: 100%;
+        padding-bottom: 40px;
+        padding-left: 75px;
+        direction: rtl;
+        
+        &::-webkit-scrollbar-thumb {
+          height: 20px;
+          width: 4px;
+          background: #28343E;
+          border-radius: 10px;
+        }
+        &::-webkit-scrollbar {
+          width: 4px;
+          background: transparent;
+          border-radius: 10px;
+        }
+        & {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        @media screen and (max-width: 1200px){
+          padding-left: 20px;
+          overflow-y: visible;
+        }
+        .leftContentSection {
+          height: 100%;
+          direction: initial;
+  
+          .form {
+            width: 100%;
+            label {
+              font-weight: 400;
+              font-size: 15px;
+              line-height: 19px;
+              display: flex;
+              align-items: center;
+              color: #707889;
+              margin: 0 0 12px;
+            }
+            .inputWrapper {
+              position: relative;
+              width: 100%;
+              input {
+                width: 100%;
+                height: 90px;
+                background: linear-gradient(90.75deg, rgba(28, 28, 28, 0.2) 0.65%, rgba(27, 27, 27, 0.08) 107.06%);
+                border-radius: 10px;
+                height: 90px;
+                border: 1px solid #3E515F;
+                padding: 0 60px 0 30px;
+                &::placeholder {
+                  font-weight: 400;
+                  font-size: 20px;
+                  line-height: 28px;
+                  align-items: center;
+                  color: #778292;
+                }
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 90px;
+                display: flex;
+                align-items: center;
+                color: #FFFFFF;
+              }
+              img {
+                position: absolute;
+                right: 28px;
+                top: 28px;
+                width: 28px;
+                height: 34px;
+              }
+            }
+            .dateInputView {
+              width: 100%;
+              height: 90px;
+              background: linear-gradient(90.75deg, rgba(28, 28, 28, 0.2) 0.65%, rgba(27, 27, 27, 0.08) 107.06%);
+              border-radius: 10px;
+              border: 1px solid #3E515F;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 0 30px;
+              margin-bottom: 40px;
+              cursor: pointer;
+              div {
+                width: 100%;
+                span {
+                  font-weight: 400;
+                  font-size: 20px;
+                  line-height: 28px;
+                  align-items: center;
+                  color: #FFFFFF;
+                }
+              }
+            }
+    
+            .rdrDateRangeWrapper .rdrDateDisplayWrapper {
+              display: none;
+            }
+            
+            .rdrDateRangeWrapper .rdrMonthAndYearWrapper {
+              height: 48px;
+              top: 0;
+              padding: 0;
+            }
+            
+            .rdrDateRangeWrapper .rdrMonths {
+              padding-top: 48px;
+            }
+          }
+          .rentalRateContent,
+          .additionallyContent {
+            margin-top: 50px;
+            h2 {
+              font-weight: 700;
+              font-size: 20px;
+              line-height: 36px;
+              display: flex;
+              align-items: center;
+              text-transform: uppercase;
+              color: #FFFFFF;
+              margin-bottom: 20px;
+            }
+    
+            .rentalRateItem {
+              display: flex;
+              justify-content: space-between;
+              padding-top: 24px;
+              padding-bottom: 24px;
+              border-top: 1px solid #313339;
+    
+              .itemLeftContent {
+                span {
+                  font-weight: 400;
+                  font-size: 18px;
+                  line-height: 20px;
+                  display: flex;
+                  align-items: center;
+                  color: #778292;
+                }
+              }
+              .itemRightContent {
+                .price {
+                  font-weight: 700;
+                  font-size: 18px;
+                  line-height: 20px;
+                  display: flex;
+                  align-items: center;
+                  text-align: right;
+                  color: #FFFFFF;
+                  justify-content: flex-end;
+                }
+                .type {
+                  font-weight: 400;
+                  font-size: 15px;
+                  line-height: 16px;
+                  display: flex;
+                  align-items: center;
+                  text-align: right;
+                  color: #778292;
+                  justify-content: flex-end;
+                }
+              }
+              &:last-child {
+                border-bottom: 1px solid #313339;
+              }
+            }
+          }
+          .requestRentButton {
+            height: 90px;
+            background: #33B7BC;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-inline: 10px;
+            margin-top: 40px;
+            .textWrapper {
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              p {
+                width: 100%;
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 30px;
+                display: flex;
+                align-items: center;
+                color: #FFFFFF;
+                @media screen and (max-width: 1200px){
+                  justify-content: center;
+                }
+              }
+            }
+            .priceSection {
+              height: 70px;
+              min-width: 245px;
+              background: #23969A;
+              border-radius: 10px;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding-inline: 30px;
+    
+              @media screen and (max-width: 1440px){
+                padding-inline: 20px;
+                min-width: 225px;
+              }
+              @media screen and (max-width: 1200px){
+                display: none;
+              }
+    
+              span {
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 20px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                color: #FFFFFF;
+                word-break: keep-all;
+              }
+              .slash {
+                color: #5CBDC0;
+                margin-inline: 4px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .rightContent {
+      width: 55.7%;
+      height: auto;
+      max-height: 948px;
+      @media screen and (max-width: 1200px){
+        width: 100%;
+      }
+    }
+  }
+
+  .closeButton {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 75px;
+    top: 85px;
+    z-index: 1;
+    cursor: pointer;
+    @media screen and (max-width: 1200px){
+      left: 20px;
+      top: 25px;
+    }
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

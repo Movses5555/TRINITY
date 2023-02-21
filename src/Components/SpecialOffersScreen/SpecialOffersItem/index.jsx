@@ -1,5 +1,5 @@
 import React from 'react';
-import ArrowRight from '../../../assets/img/arrow -right.svg';
+import ArrowRight from '../../../assets/img/arrow-right.svg';
 
 import styles from './SpecialOffersScreen.module.scss';
 

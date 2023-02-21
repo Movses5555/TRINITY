@@ -4,7 +4,7 @@ import Offers from "../Components/Offers/Offers";
 import Ask from "../Components/Ask/Ask";
 import Discount from "../Components/Discount/Discount";
 import Row from "../Components/Row/Row";
-import { RentModal } from '../Components/CarListScreen/RentModal';
+import { CarRentModal } from '../Components/CarListScreen/CarRentModal';
 
 export const Cars = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -22,8 +22,7 @@ export const Cars = () => {
         <Row/>
         {
           openModal && (
-            <RentModal
-              openModal={openModal}
+            <CarRentModal
               onClose={() => setOpenModal(false)}
             />
           )

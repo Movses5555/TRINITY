@@ -5,7 +5,7 @@
     justify-content: center;
     flex-direction: column;
     @media screen and (max-width: 850px){
-        padding-top: 127px;
+        padding: 127px 0 0;
         margin-bottom: 80px;
     }
     .specialOfferContent {
@@ -36,21 +36,37 @@
                 width: 100%;
                 height: 100%;
                 margin-bottom: 32px;
+                @media screen and (max-width: 850px) {
+                    margin-bottom: 10px;
+                }
             }
             .section1 {
                 height: auto;
                 display: flex;
+                @media screen and (max-width: 850px) {
+                    display: block;
+                }
                 .leftContent {
                     display: flex;
                     flex-direction: column;
                     width: calc(42.5% - 16px);
                     height: 100%;
                     margin-right: 16px;
+
+                    @media screen and (max-width: 850px) {
+                        width: 100%
+                    }
                 }
                 .rightContent {
                     display: flex;
-                    flex-direction: column;                    width: calc(57.5% - 16px);
+                    flex-direction: column;
+                    width: calc(57.5% - 16px);
                     margin-left: 16px;
+                    @media screen and (max-width: 850px) {
+                        display: block;
+                        width: 100%;
+                        margin-left: 0;
+                    }
                     .contentItem {
                         height: 100%;
                     }
@@ -59,16 +75,29 @@
             .section2 {
                 height: auto;
                 display: flex;
+                @media screen and (max-width: 850px) {
+                    display: block;
+                }
                 .leftContent {
                     display: flex;
                     flex-direction: column;
                     width: calc(42.5% - 16px);
                     margin-right: 16px;
+                    @media screen and (max-width: 850px) {
+                        display: block;
+                        width: 100%;
+                        margin-left: 0;
+                    }
                 }
                 .rightContent {
                     display: flex;
-                    flex-direction: column;                    width: calc(57.5% - 16px);
+                    flex-direction: column;
+                    width: calc(57.5% - 16px);
                     margin-left: 16px;
+                    @media screen and (max-width: 850px) {
+                        width: 100%;
+                        margin-left: 0;
+                    }
                 }
             }
         }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Footer.module.scss';
 import {NavLink} from "react-router-dom";
 import logo1 from '../../assets/img/logo1.svg';
@@ -13,11 +13,13 @@ import logo9 from '../../assets/img/logo9.svg';
 import logo10 from '../../assets/img/logo10.svg';
 import { GetScreenWidth } from '../../helpers/getScreenWidth';
 import { GetScrollPosition } from '../../helpers/getScrollPosition';
+import { RentModal } from './RentModal';
 import Aos from 'aos';
 
 function Footer() {
     const scrollTop = GetScrollPosition();
     const screenWidth = GetScreenWidth();
+    const [openModal, setOpenModal] = useState(false);
 
     useEffect(() => {
         let footer = document.getElementById('footer');
@@ -148,7 +150,11 @@ function Footer() {
                             </a>
                         </div>
                     </div>
-                    <button className={styles.reqCall} data-aos={ isMobile ? "slide-right" : ""} >REQUEST A CALLBACK</button>
+                    <button
+                        className={styles.reqCall}
+                        data-aos={ isMobile ? "slide-right" : ""}
+                        onClick={() => setOpenModal(true)}
+                    >REQUEST A CALLBACK</button>
                     <p className={styles.adress} data-aos={ isMobile ? "slide-up" : ""}>
                         24 4th St - Al Quoz - Al Quoz Industrial Area 3 - Dubai
                     </p>
@@ -209,6 +215,14 @@ function Footer() {
                     </div>
                 </div>
             </div>
+            {
+                openModal && (
+                    <RentModal
+                        openModal={openModal}
+                        onClose={() => setOpenModal(false)}
+                    />
+                )
+            }
         </footer>
     );
 }

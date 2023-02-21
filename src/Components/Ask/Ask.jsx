@@ -29,7 +29,7 @@ function Ask() {
                         referrerPolicy="no-referrer-when-downgrade">
                     </Iframe>
                 </div>
-                <div className={styles.askForm} data-aos={ !!isMobile ? '' : "slide-left"}>
+                <div className={styles.askForm} data-aos={ !!isMobile ? '' : "zoom-in"}>
                     <p className={styles.title} data-aos={ !!isMobile ? "slide-up" : "" } >Ask us anything</p>
                     <input type="text" placeholder={'Name'} className={styles.input} data-aos={ !!isMobile ? "slide-up" : "" } />
                     <input type="email" placeholder={'E-mail'} className={styles.input} data-aos={ !!isMobile ? "slide-up" : "" } />
