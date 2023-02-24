@@ -39,7 +39,7 @@ export const CarRentModal = ({
     } else {
       let el = document.getElementById('left-content-section');
       if(!!el) {
-        setLeftContentSectionHeight(window.innerHeight - el.offsetTop - 100);
+        setLeftContentSectionHeight(window.innerHeight - el.offsetTop);
       }
     }
     return () => {

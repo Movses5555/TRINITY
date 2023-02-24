@@ -195,7 +195,7 @@
           overflow-y: visible;
         }
         .leftContentSection {
-          height: 100%;
+          height: auto;
           direction: initial;
   
           .form {
@@ -405,7 +405,7 @@
     .rightContent {
       width: 55.7%;
       height: auto;
-      max-height: 948px;
+      max-height: 880px;
       @media screen and (max-width: 1200px){
         width: 100%;
       }
