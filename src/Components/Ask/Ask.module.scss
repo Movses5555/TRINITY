@@ -53,7 +53,9 @@
           margin-bottom: 40px;
         }
       }
-
+      .inputWrapper {
+        margin-bottom: 30px;
+      }
       .input, textarea {
         width: 100%;
         background: linear-gradient(90.75deg, #1C1C1C 0.65%, rgba(27, 27, 27, 0.4) 107.06%);
@@ -63,10 +65,8 @@
         font-size: 20px;
         color: #fff;
         border: 1px solid rgba(67, 67, 67, .6);
-        margin-bottom: 30px;
         resize: none;
         font-family: 'Stolzl';
-
         transition: .3s linear;
 
         @media screen and (max-width: 850px) {
@@ -83,6 +83,16 @@
           outline: none;
           border-color: #33B7BC;
         }
+      }
+
+      .inputError {
+        border-color: #F00;
+      }
+      .errorMessage {
+        display: block;
+        color: #F00;
+        margin-top: 4px;
+        padding-left: 4px;
       }
 
       .formSend {
@@ -112,6 +122,9 @@
         &:hover {
           box-shadow: 0px 0px 20px #245C5F;
           background: #33B7BC;
+        }
+        &:disabled {
+          cursor: default;
         }
       }
     }

@@ -224,17 +224,34 @@
           background: #33B7BC;
         }
       }
-      .adress {
+      .address {
         font-weight: 400;
         font-size: 24px;
         line-height: 34px;
         color: #FFFFFF;
         width: 416px;
-        margin-bottom: 70px;
+        margin-bottom: 40px;
         @media screen and (max-width: 650px) {
           font-size: 20px;
           text-align: center;
           width: 100%;
+          margin-bottom: 0;
+        }
+      }
+      .developedBy {
+        display: block;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 34px;
+        color: #FFFFFF;
+        width: auto;
+        margin-bottom: 70px;
+        text-decoration: underline;
+        @media screen and (max-width: 650px) {
+          font-size: 20px;
+          text-align: center;
+          width: 100%;
+          margin-top: 20px;
           margin-bottom: 0;
         }
       }

@@ -1,34 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { ReactSlider } from '../../../Elements/Slider';
-import { DateRange} from "react-date-range";
+import { DateRange } from "react-date-range";
 import { format } from "date-fns";
+import { bookingRequest } from '../../../api'
 import CloseIcon from '../../../assets/img/closeWhite.svg';
 import InfoIcon from '../../../assets/img/InfoIcon.svg';
 import DateIcon from '../../../assets/img/dateIcon.svg';
 import MapIcon from '../../../assets/img/map.svg';
-import SliderImage from '../../../assets/img/sliderImage.svg';
+import toaster from '../../../helpers/toast'
 
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
 import styles from './CarRentModal.module.scss';
 
 
-
-const images = [
-  SliderImage,
-  SliderImage,
-  SliderImage,
-  SliderImage,
-  SliderImage,
-  SliderImage,
-]
 export const CarRentModal = ({
   onClose,
+  activeItem,
 }) =>  {
   const [openInfo, setOpenInfo] = useState(false);
+  const [isDisabledButton, setIsDisabledButton] = useState(false);
+  const [images, setImages] = useState([]);
   const [leftContentSectionHeight, setLeftContentSectionHeight] = useState('auto');
   const [openDatePicker, setOpenDatePicker] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [data, setData] = useState({});
   const [date, setDate] = useState({
     startDate: new Date(),
-    endDate: '',
+    endDate: new Date(),
     key: 'selection'
   })
 
@@ -42,15 +41,56 @@ export const CarRentModal = ({
         setLeftContentSectionHeight(window.innerHeight - el.offsetTop);
       }
     }
+    if(activeItem) {
+      const { media } = activeItem;
+      let img = [];
+      media?.forEach(item => {
+        img = [
+          ...images,
+          item.original_url
+        ]
+      })
+      setImages(img);
+    }
     return () => {
       document.body.style.overflowY = 'auto';
     }
   }, []);
 
+  const onChange = (key, value) => {
+    setData({
+      ...data,
+      [key]: value
+    })
+    setErrors({
+      ...errors,
+      [key]: null
+    })
+  }
+
+  const onBookingRequest = () => {
+    let requestData = {
+      ...data,
+      from: format(new Date(date.startDate), 'dd.MM.yyyy'),
+      to: format(new Date(date.endDate), 'dd.MM.yyyy'),
+    }
+    setIsDisabledButton(true);
+    bookingRequest(requestData)
+      .then(res => {
+        setIsDisabledButton(false);
+        setData({})
+        toaster.success('Thank you! Your request has been accepted.');
+      })
+      .catch((err) => {
+        setErrors(err?.response?.data?.errors || {})
+        setIsDisabledButton(false);
+        toaster.error('Something went wrong');
+      })
+  }
 
   return (
     <div className={styles.carRentModal}>
-      <div 
+      <div
         className={styles.closeButton}
         role='presentation'
         onClick={onClose}
@@ -58,11 +98,16 @@ export const CarRentModal = ({
         <img src={CloseIcon} alt='close' />
       </div>
       <div className={styles.content}>
+        <div className={styles.rightContent}>
+          <ReactSlider
+            images={images}
+          />
+        </div>
         <div className={styles.leftContent}>
           <div className={styles.titleAndInfo}>
             <div className={styles.titleAndInfoButton}>
               <div className={styles.title}> 
-                <span>Rent Lamborghini Urus in Dubai</span>
+                <span>{activeItem.name_l?.en}</span>
                 <div
                   className={styles.infoButton}
                   role='presentation'
@@ -136,9 +181,8 @@ export const CarRentModal = ({
                   !!openDatePicker && (
                     <DateRange
                       editableDateInputs={true}
-                      onChange={item => {
+                      onChange={(item) => {
                         setDate(item.selection)
-                        setOpenDatePicker(false)
                       }}
                       moveRangeOnFirstSelection={false}
                       ranges={[{
@@ -151,8 +195,40 @@ export const CarRentModal = ({
                 }
                 <label>Where to bring the car ?</label>
                 <div className={styles.inputWrapper}>
-                  <input type="text" placeholder={'From the salon'} className={styles.input} />
+                  <input
+                    type="text"
+                    placeholder={'From the salon'}
+                    className={!!errors?.place ? `${styles.input} ${styles.inputError}` : styles.input}
+                    name='place'
+                    value={data?.place}
+                    onChange={(e) => {
+                      onChange('place', e.target.value)
+                    }}
+                  />
                   <img src={MapIcon} alt='location' />
+                  {
+                    !!errors?.place && (
+                      <span className={styles.errorMessage}>{errors?.place?.[0]}</span>
+                    )
+                  }
+                </div>
+                <label>Phone number</label>
+                <div className={styles.inputWrapper}>
+                  <input
+                    type="text"
+                    pattern="[0-9]"
+                    placeholder={'Phone number'}
+                    className={!!errors?.phone ? `${styles.input} ${styles.inputError}` : styles.input}
+                    name='phone'
+                    onChange={(e) => {
+                      onChange('phone', e.target.value)
+                    }}
+                  />
+                  {
+                    !!errors?.phone && (
+                      <span className={styles.errorMessage}>{errors?.phone?.[0]}</span>
+                    )
+                  }
                 </div>
               </div>
               <div className={styles.rentalRateContent}>
@@ -182,30 +258,32 @@ export const CarRentModal = ({
                 <h2>Additionally</h2>
                 <Item
                   text='Security Deposit'
-                  price='5 000 AED/1800$'
+                  price={`5 000 AED/${activeItem.deposit}$`}
                 />
                 <Item
                   text='Personal Driver'
                   price='Avaliable'
                 />
               </div>
-              <div className={styles.requestRentButton}>
+              <div
+                className={!!isDisabledButton ? `${styles.requestRentButton} ${styles.requestRentButtonDisabled}` : styles.requestRentButton}
+                onClick={() => {
+                  if(!isDisabledButton) {
+                    onBookingRequest()
+                  }
+                }}
+              >
                 <div className={styles.textWrapper}>
                   <p>Request for a rent</p>
                 </div>
                 <div className={styles.priceSection}>
                   <span>15 000 AED</span>
                   <span className={styles.slash}> / </span>
-                  <span>3 800$</span>
+                  <span>{activeItem.deposit}$</span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className={styles.rightContent}>
-          <ReactSlider
-            images={images}
-          />
         </div>
       </div>
     </div>

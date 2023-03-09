@@ -10,13 +10,14 @@ import { UnderConstruction } from './Pages/UnderConstruction';
 import { DubaiGuide } from './Pages/DubaiGuide';
 import { Layout } from "./Pages/Layout";
 import { NotFound } from './Pages/NotFound'
+import { ToastContainer } from 'react-toastify';
 import Aos from 'aos';
 import 'aos/dist/aos.css'
+import 'react-toastify/dist/ReactToastify.css';
 
 import './App.scss';
 
 const App = () => {
-
   useEffect(() => {
     Aos.init({
       debounceDelay: 50
@@ -25,6 +26,19 @@ const App = () => {
 
   return (
     <div className="App">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        style={{ zIndex: 100000 }}
+      />
       <Router>
         <Layout>
           <Routes>

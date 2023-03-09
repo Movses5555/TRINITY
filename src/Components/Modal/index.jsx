@@ -15,16 +15,20 @@ export const Modal = ({
   }, []);
 
   return (
-    <div
-      className={styles.modal}
-    >
+    <div className={styles.modal} >
       <div className={styles.overlay}></div>
       <div
         className={styles.modalContentWrapper}
         role='presentation'
         onClick={onClose} 
       >
-        <div className={styles.modalContent}>
+        <div
+          className={styles.modalContent}
+          onClick={(e) => {
+            e.preventDefault()
+            e.stopPropagation();
+          }}
+        >
           {
             !!isShowCloseButton && (
               <div 

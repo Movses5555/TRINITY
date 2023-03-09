@@ -5,6 +5,8 @@
   }
   .swiperSlide {
     margin-left: 20px;
+    display: flex;
+    align-items: center;
     .line {
       position: static !important;
       height: 2px !important;
