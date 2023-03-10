@@ -21,6 +21,8 @@ export const CarRentModal = ({
   const [openInfo, setOpenInfo] = useState(false);
   const [isDisabledButton, setIsDisabledButton] = useState(false);
   const [images, setImages] = useState([]);
+  const [prices, setPrices] = useState({});
+  const [totalPrices, setTotalPrices] = useState({});
   const [leftContentSectionHeight, setLeftContentSectionHeight] = useState('auto');
   const [openDatePicker, setOpenDatePicker] = useState(false);
   const [errors, setErrors] = useState({});
@@ -42,15 +44,33 @@ export const CarRentModal = ({
       }
     }
     if(activeItem) {
-      const { media } = activeItem;
+      const { media, tariffs, deposit } = activeItem;
       let img = [];
       media?.forEach(item => {
         img = [
-          ...images,
+          ...img,
           item.original_url
         ]
       })
+      let pricesData = {}
+      
+      tariffs?.forEach((item) => {
+        let amountType = item.name_l;
+        if(amountType[0] === '"' && amountType[amountType.length - 1] === '"') {
+          amountType = amountType.slice(1, amountType.length - 1 )
+        }
+        pricesData = {
+          ...pricesData,
+          [amountType]: { amountType, amount: item.amount}
+        }
+      })
+      let totalPricesData = {
+        AED: +pricesData.AED.amount + +deposit,
+        USD: +pricesData.USD.amount
+      };
       setImages(img);
+      setPrices(pricesData)
+      setTotalPrices(totalPricesData)
     }
     return () => {
       document.body.style.overflowY = 'auto';
@@ -123,28 +143,29 @@ export const CarRentModal = ({
               !!openInfo && (
                   <div className={styles.info}>
                     <InfoItem
-                      title='650' 
+                      title={activeItem.horsepower} 
                       description='Horsepower'
                     />
                     <InfoItem
-                      title='4L' 
+                      title={activeItem.engine_capacity}
                       description='Engine capacity'
                     />
                     <InfoItem
-                      title='3.6'
+                      title={activeItem.acceleration}
                       subTitle='sec'
                       description='Acceleration'
                     />
                     <InfoItem
-                      title='SUV' 
+                      title={activeItem?.type?.name_l?.en}
                       description='Type'
+                      toUpperCase
                     />
                     <InfoItem
-                      title='4WD' 
+                      title={activeItem.drive}
                       description='Drive'
                     />
                     <InfoItem
-                      title='5' 
+                      title={activeItem.quantity_of_seats}
                       description='Quantity of Seats'
                     />
                   </div>
@@ -197,7 +218,7 @@ export const CarRentModal = ({
                 <div className={styles.inputWrapper}>
                   <input
                     type="text"
-                    placeholder={'From the salon'}
+                    placeholder={'Pickup from Trinity garage'}
                     className={!!errors?.place ? `${styles.input} ${styles.inputError}` : styles.input}
                     name='place'
                     value={data?.place}
@@ -233,7 +254,13 @@ export const CarRentModal = ({
               </div>
               <div className={styles.rentalRateContent}>
                 <h2>Rental rate</h2>
-                <Item
+                <div className={styles.rentalRateItem}>
+                  <div className={styles.itemRightContent}>
+                    <span className={styles.priceOneDay}>{prices?.AED?.amount} AED / {prices?.USD?.amount} $</span>
+                    <span className={styles.type}>price for one day</span>
+                  </div>
+                </div>
+                {/* <Item
                   text='1-7 day'
                   price='3.900 AED/1060$'
                   type='price for one day'
@@ -252,13 +279,13 @@ export const CarRentModal = ({
                   text='from 30 days'
                   price='3.900 AED/1060$'
                   type='price for one day'
-                />
+                /> */}
               </div>
               <div className={styles.additionallyContent}>
                 <h2>Additionally</h2>
                 <Item
                   text='Security Deposit'
-                  price={`5 000 AED/${activeItem.deposit}$`}
+                  price={`${activeItem.deposit}AED`}
                 />
                 <Item
                   text='Personal Driver'
@@ -277,9 +304,9 @@ export const CarRentModal = ({
                   <p>Request for a rent</p>
                 </div>
                 <div className={styles.priceSection}>
-                  <span>15 000 AED</span>
+                  <span>{totalPrices.AED}AED</span>
                   <span className={styles.slash}> / </span>
-                  <span>{activeItem.deposit}$</span>
+                  <span>{totalPrices.USD}$</span>
                 </div>
               </div>
             </div>
@@ -294,7 +321,7 @@ export const CarRentModal = ({
 const Item = ({
   text,
   price,
-  type
+  type,
 }) => {
   return (
     <div className={styles.rentalRateItem}>
@@ -312,11 +339,12 @@ const Item = ({
 const InfoItem = ({
   title,
   subTitle,
-  description
+  description,
+  toUpperCase
 }) => {
   return (
     <div className={styles.info_item}>
-      <p className={styles.info_item_title}>
+      <p className={`${styles.info_item_title} ${!!toUpperCase && styles.toUpperCase}`} >
         {title}
         { !!subTitle && <span className={styles.info_item_subtitle}>{subTitle}</span> }
       </p>

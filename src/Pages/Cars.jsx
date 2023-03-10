@@ -12,7 +12,7 @@ export const Cars = () => {
   const [openModal, setOpenModal] = useState(false);
   const [activeItem, setActiveItem] = useState({});
   const [offersCars, setOffersCars] = useState([]);
-  const [offersActiveTab, setOffersActiveTab] = useState('all_cars');
+  const [offersActiveTab, setOffersActiveTab] = useState('');
 
   useEffect(() => {
     getCarsData();
@@ -23,7 +23,10 @@ export const Cars = () => {
   }, [offersActiveTab])
 
   const getCarsData = () => {
-    let query = generateQuery({tab: 'most_popular'});
+    let query = [];
+    if(!!offersActiveTab) {
+      query = generateQuery({tab: offersActiveTab});
+    }
     getCars(query)
       .then((res) => {
         if(!!res.data.cars) {

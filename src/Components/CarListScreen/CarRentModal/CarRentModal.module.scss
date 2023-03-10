@@ -166,6 +166,11 @@
               text-align: center;
               color: #535965;
             }
+            .toUpperCase {
+              text-transform: uppercase;
+              padding-inline: 8px;
+              font-size: 24px;
+            }
           }
         }
       }
@@ -304,7 +309,14 @@
               color: #FFFFFF;
               margin-bottom: 20px;
             }
-    
+            .price {
+              font-weight: 700;
+              font-size: 18px;
+              line-height: 20px;
+              display: flex;
+              align-items: center;
+              color: #FFFFFF;
+            }
             .rentalRateItem {
               display: flex;
               justify-content: space-between;
@@ -343,6 +355,15 @@
                   color: #778292;
                   justify-content: flex-end;
                 }
+                .priceOneDay {
+                  font-weight: 700;
+                  font-size: 18px;
+                  line-height: 20px;
+                  display: flex;
+                  align-items: center;
+                  text-align: left;
+                  color: #FFFFFF;
+                }
               }
               &:last-child {
                 border-bottom: 1px solid #313339;
@@ -379,17 +400,17 @@
             }
             .priceSection {
               height: 70px;
-              min-width: 245px;
+              min-width: 250px;
               background: #23969A;
               border-radius: 10px;
               display: flex;
-              justify-content: space-between;
+              justify-content: center;
               align-items: center;
               padding-inline: 30px;
     
               @media screen and (max-width: 1440px){
                 padding-inline: 20px;
-                min-width: 225px;
+                min-width: 200px;
               }
               @media screen and (max-width: 1200px){
                 display: none;

@@ -137,13 +137,18 @@
         font-weight: 700;
         font-size: 40px;
         color: #FFFFFF;
+        padding-right: 180px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: calc(100% - 50px);
         @media screen and (max-width: 850px){
           bottom: 25px;
           left: 20px;
           font-size: 18px;
+          padding-right: 110px;
         }
       }
-
       .rentBtn {
         position: absolute;
         bottom: 50px;
@@ -192,11 +197,13 @@
         border-radius: 0px 10px 10px 0px;
       }
       &:hover {
-        .offerImg {
-          display: none;
-        }
-        .offerImg2 {
-          display: block;
+        @media screen and (min-width: 851px){
+          .offerImg {
+            display: none;
+          }
+          .offerImg2 {
+            display: block;
+          }
         }
       }
     }

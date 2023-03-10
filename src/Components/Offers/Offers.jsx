@@ -21,12 +21,8 @@ function Offers({
         { name: 'Daily', value: 'daily'},
     ]
     const CarListTabs = [
-        { name: 'All Cars', value: 'all_cars'},
-        { name: 'SUVs', value: 'suvs'},
-        { name: 'Coupe', value: 'coupe'},
-        { name: 'Premium', value: 'premium'},
-        // { name: 'Convertibles', value: 'convertibles'},
-        // { name: 'Sports Cars', value: 'sports_cars'},
+        { name: 'All Cars', value: ''},
+        ...MainTabs,
     ]
 
     let tabs = !!isCarList ? CarListTabs : MainTabs;

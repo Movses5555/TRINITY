@@ -86,12 +86,17 @@ export const RentModal = ({
             type="tel" 
             name='phone'
             placeholder={'+(xxx) - xxx - xxx - xxx'}
-            pattern='[0-9]*'
+            pattern="[0-9]+"
             className={!!errors?.phone ? `${styles.input} ${styles.inputError}` : styles.input}
-            onChange={(e) => {
-              onChange('phone', e.target.value)
-            }}
+            value={data.phone}
             onFocus={() => onFocus('phone')}
+            onChange={(e) => {
+                let value = e.target.value;
+                const regex = /^\+?\d+$/;
+                if (value === "" || value === "+" || regex.test(value)) {
+                    onChange('phone', value)
+                }
+            }}
           />
           {
             !!errors?.phone && (

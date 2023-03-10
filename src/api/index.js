@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const client = axios.create();
-const apiUrl = 'http://admin.trinityrental.com';
+const apiUrl = 'https://admin.trinityrental.com/api';
 
 
 export const getCars = (query = []) => {

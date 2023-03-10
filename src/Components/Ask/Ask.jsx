@@ -102,11 +102,18 @@ function Ask() {
                             type="tel" 
                             name='phone'
                             placeholder={'+(xxx) - xxx - xxx - xxx'}
-                            pattern="[\+]\d{1}[\(]\d{3}[\)]\d{3}[\-]\d{2}[\-]\d{2}"
+                            pattern="[0-9]+"
                             className={!!errors?.phone ? `${styles.input} ${styles.inputError}` : styles.input}
                             data-aos={ !!isMobile ? "slide-up" : "" }
-                            onChange={(e) => onChange('phone', e.target.value)}
+                            value={data.phone}
                             onFocus={() => onFocus('phone')}
+                            onChange={(e) => {
+                                let value = e.target.value;
+                                const regex = /^\+?\d+$/;
+                                if (value === "" || value === "+" || regex.test(value)) {
+                                    onChange('phone', value)
+                                }
+                            }}
                         />
                         {
                             !!errors?.phone && (
