@@ -11,6 +11,7 @@ import { DubaiGuide } from './Pages/DubaiGuide';
 import { Layout } from "./Pages/Layout";
 import { NotFound } from './Pages/NotFound'
 import { ToastContainer } from 'react-toastify';
+import ScrollToTop from './helpers/scrollToTop'
 import Aos from 'aos';
 import 'aos/dist/aos.css'
 import 'react-toastify/dist/ReactToastify.css';
@@ -40,6 +41,7 @@ const App = () => {
         style={{ zIndex: 100000 }}
       />
       <Router>
+        <ScrollToTop />
         <Layout>
           <Routes>
             <Route exact path="/" element={<Main/>} />

@@ -105,7 +105,7 @@ function Ask() {
                             pattern="[0-9]+"
                             className={!!errors?.phone ? `${styles.input} ${styles.inputError}` : styles.input}
                             data-aos={ !!isMobile ? "slide-up" : "" }
-                            value={data.phone}
+                            value={data.phone || ''}
                             onFocus={() => onFocus('phone')}
                             onChange={(e) => {
                                 let value = e.target.value;

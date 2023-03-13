@@ -73,16 +73,24 @@ function Slider({
                         noSwiping={true}
                         allowTouchMove={false}
                         onSwiper={setThumbsSwiper}
-                        initialSlide={2}
+                        initialSlide={1}
                         className={styles.carImageSlider}
                     >
                         {
                             popularCars?.map((car, i) => {
+                                let price = 0;
+                                car.tariffs?.forEach((item) => {
+                                    if(item.name_l === '"AED"') {
+                                        price = item.amount
+                                    }
+                                })
                                 return (
                                     <SwiperSlide key={i} className={styles.slide}>
                                         <img src={car.media?.[0]?.preview_url || car.media?.[0]?.original_url || carsArray[i].image} alt=""/>
-                                        <p className={styles.carTitle}>{car.name_l?.en}<br/>{car.carSubtitle}</p>
-                                        <p className={styles.price}>Rent is from aed<br/><span>{car.deposit}$</span><br/>per day</p>
+                                        <div className={styles.titlePrice}>
+                                            <p className={styles.carTitle}>{car.name_l?.en}<br/>{car.carSubtitle}</p>
+                                            <p className={styles.price}>Rent is from aed<br/><span>{price}AED</span><br/>per day</p>
+                                        </div>
                                     </SwiperSlide>
                                 )
                             })

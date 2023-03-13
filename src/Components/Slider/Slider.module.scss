@@ -171,40 +171,42 @@
     border-radius: 0 25px 25px 0;
     height: 100%;
   }
-  .carTitle {
+  .titlePrice {
     position: absolute;
     bottom: 65px;
-    left: 60px;
-    font-weight: 700;
-    font-size: 46px;
-    line-height: 60px;
-    color: #FFFFFF;
-    max-width: 487px;
-    @media screen and (max-width: 1350px) {
-      font-size: 25px;
-      line-height: 30px;
-      max-width: 250px;
-    }
-  }
-
-  .price {
-    position: absolute;
-    right: 60px;
-    bottom: 65px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 30px;
-    color: #FFFFFF;
-
-    span {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 60px;
+    flex-wrap: wrap;
+    .carTitle {
       font-weight: 700;
-      font-size: 50px;
+      font-size: 46px;
       line-height: 60px;
       color: #FFFFFF;
+      max-width: 50%;
+      @media screen and (max-width: 1350px) {
+        font-size: 25px;
+        line-height: 30px;
+        max-width: 250px;
+      }
+    }
+    .price {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 30px;
+      color: #FFFFFF;
+      max-width: 50%;
+
+      span {
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 60px;
+        color: #FFFFFF;
+      }
     }
   }
-
-
 }
 
 .carImageSlider {

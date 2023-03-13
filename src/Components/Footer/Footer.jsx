@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import styles from './Footer.module.scss';
-import {NavLink} from "react-router-dom";
+import {NavLink, Link} from "react-router-dom";
 import logo1 from '../../assets/img/logo1.svg';
 import logo2 from '../../assets/img/logo2.svg';
 import logo3 from '../../assets/img/logo3.svg';
@@ -48,27 +47,27 @@ function Footer() {
                                 data-aos-anchor="#for_customers" 
                             >For Customers</p>
                             <NavLink 
-                                to={'/'} 
+                                to={'/about'} 
                                 data-aos={ isMobile ? "slide-right" : ""} 
                                 data-aos-anchor="#for_customers" 
                             ><p>About Us</p></NavLink>
                             <NavLink 
-                                to={'/'} 
+                                to={'/conditions'} 
                                 data-aos={ isMobile ? "slide-left" : ""} 
                                 data-aos-anchor="#for_customers" 
                             ><p>Conditions</p></NavLink>
                             <NavLink 
-                                to={'/'} 
+                                to={'/testimonials'} 
                                 data-aos={ isMobile ? "slide-right" : ""}
                                 data-aos-anchor="#for_customers" 
                              ><p>Testimonials</p></NavLink>
                             <NavLink 
-                                to={'/'} 
+                                to={'/articles'} 
                                 data-aos={ isMobile ? "slide-left" : ""} 
                                 data-aos-anchor="#for_customers" 
                             ><p>Articles</p></NavLink>
                             <NavLink 
-                                to={'/'} 
+                                to={'/contacts'} 
                                 data-aos={ isMobile ? "slide-right" : ""} 
                                 data-aos-anchor="#for_customers" 
                             ><p>Contacts</p></NavLink>
@@ -80,32 +79,27 @@ function Footer() {
                                 data-aos-anchor="#car_list" 
                             >Car List</p>
                             <NavLink 
-                                to={'/'} 
+                                to={'/car-list?tab=special_offer'} 
                                 data-aos={ isMobile ? "slide-left" : ""} 
                                 data-aos-anchor="#car_list" 
-                            ><p>SUVs</p></NavLink>
+                            ><p>Special Offer</p></NavLink>
                             <NavLink 
-                                to={'/'} 
+                                to={'/car-list?tab=new_cars'} 
                                 data-aos={ isMobile ? "slide-left" : ""}
                                 data-aos-anchor="#car_list" 
                                 data-aos-offset="50px"
-                            ><p>Convertibles</p></NavLink>
+                            ><p>New cars</p></NavLink>
                             <NavLink 
-                                to={'/'} 
+                                to={'/car-list?tab=most_popular'} 
                                 data-aos={ isMobile ? "slide-right" : ""}
                                 data-aos-anchor="#car_list" 
                                 data-aos-offset="50px"
-                            ><p>Sports Cars</p></NavLink>
+                            ><p>Most Popular</p></NavLink>
                             <NavLink 
-                                to={'/'} 
+                                to={'/car-list?tab=daily'} 
                                 data-aos={ isMobile ? "slide-right" : ""}
                                 data-aos-anchor="#car_list" 
-                            ><p>Premium</p></NavLink>
-                            <NavLink
-                                to={'/'} 
-                                data-aos={ isMobile ? "slide-left" : ""}
-                                data-aos-anchor="#car_list" 
-                            ><p>Coupe</p></NavLink>
+                            ><p>Daily</p></NavLink>
                         </div>
                         <div className={styles.navCol} id='service'>
                             <p 
@@ -114,17 +108,17 @@ function Footer() {
                                 data-aos-anchor="#service" 
                             >Service</p>
                             <NavLink 
-                                to={'/'} 
+                                to={'/car-list'} 
                                 data-aos={ isMobile ? "slide-left" : ""} 
                                 data-aos-anchor="#service" 
                             ><p>Car List</p></NavLink>
                             <NavLink 
-                                to={'/'} 
+                                to={'/yacht-list'} 
                                 data-aos={ isMobile ? "slide-right" : ""} 
                                 data-aos-anchor="#service" 
                             > <p>Yacht list</p></NavLink>
                             <NavLink
-                                to={'/'} 
+                                to={'/chauffeur-list'} 
                                 data-aos={ isMobile ? "slide-left" : ""} 
                                 data-aos-anchor="#service" 
                             > <p>Chauffeur</p> </NavLink>
@@ -133,7 +127,7 @@ function Footer() {
                 </div>
                 <div className={styles.rightSide} data-aos={ isMobile ? "" : "slide-left"}>
                     <div className={styles.socials} data-aos={ isMobile ? "slide-down" : ""} >
-                        <a href="tel:971585907875" className={styles.tel}>+971 58 590 7875</a>
+                        <a href="tel:971585907875" className={styles.tel}>+971 58 501 9537</a>
                         <div className={styles.socialLinks}>
                             <Link
                                 to="http://t.me/natalia_trinity"
@@ -193,7 +187,7 @@ function Footer() {
                     <a href="/#">Privacy Policy</a>
                     <p>©2023 TRINITY. All rights reserved</p>
                     <div className={styles.links}>
-                        <a href="/#" data-aos={ isMobile ? "slide-right" : ""}>
+                        {/* <a href="/#" data-aos={ isMobile ? "slide-right" : ""}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
                                 <path d="M16.3803 5.76336H18.417V2.31836C17.4309 2.21581 16.4401 2.16519 15.4486 2.16669C12.502 2.16669 10.487 3.96502 10.487 7.25836V10.0967H7.16113V13.9534H10.487V23.8334H14.4736V13.9534H17.7886L18.287 10.0967H14.4736V7.63752C14.4736 6.50002 14.777 5.76336 16.3803 5.76336Z" fill="#33B7BC"/>
                             </svg>
@@ -214,8 +208,12 @@ function Footer() {
                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26" fill="none">
                                 <path d="M25.241 7.90832C25.241 7.69166 24.916 5.95832 24.1577 5.19999C23.1827 4.11666 22.0993 4.00832 21.5577 4.00832H21.4493C18.091 3.79166 13.1077 3.79166 12.9993 3.79166C12.9993 3.79166 7.90768 3.79166 4.54935 4.00832H4.44102C3.89935 4.00832 2.81602 4.11666 1.84102 5.19999C1.08268 6.06666 0.757682 7.79999 0.757682 8.01666C0.757682 8.12499 0.541016 10.075 0.541016 12.1333V13.975C0.541016 16.0333 0.757682 17.9833 0.757682 18.0917C0.757682 18.3083 1.08268 20.0417 1.84102 20.8C2.70768 21.775 3.79102 21.8833 4.44102 21.9917H4.76602C6.71602 22.2083 12.6743 22.2083 12.891 22.2083C12.891 22.2083 17.9827 22.2083 21.341 21.9917H21.4493C21.991 21.8833 23.0743 21.775 24.0493 20.8C24.8077 19.9333 25.1327 18.2 25.1327 17.9833C25.1327 17.875 25.3493 15.925 25.3493 13.8667V12.025C25.4577 10.075 25.241 8.01666 25.241 7.90832ZM17.2243 13.2167L10.7243 16.6833C10.616 16.6833 10.616 16.7917 10.5077 16.7917C10.3993 16.7917 10.291 16.7917 10.291 16.6833C10.1827 16.575 10.0743 16.4667 10.0743 16.25V9.20832C10.0743 8.99166 10.1827 8.88332 10.291 8.77499C10.3993 8.66666 10.616 8.66666 10.8327 8.77499L17.3327 12.2417C17.5493 12.35 17.6577 12.4583 17.6577 12.675C17.6577 12.8917 17.441 13.1083 17.2243 13.2167Z" fill="#33B7BC"/>
                             </svg>
-                        </a>
-                        <a href="/#" data-aos={ isMobile ? "slide-left" : ""}>
+                        </a> */}
+                        <Link
+                            to="https://instagram.com/trinity_rental?igshid=YmMyMTA2M2Y="
+                            target="_blank"
+                            data-aos={ isMobile ? "slide-left" : ""}
+                        >
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
                                 <g clipPath="url(#clip0_99_144)">
                                     <path d="M15.125 0H6.875C5.05164 0 3.30295 0.724328 2.01364 2.01364C0.724328 3.30295 0 5.05164 0 6.875L0 15.125C0 16.9484 0.724328 18.697 2.01364 19.9864C3.30295 21.2757 5.05164 22 6.875 22H15.125C16.9484 22 18.697 21.2757 19.9864 19.9864C21.2757 18.697 22 16.9484 22 15.125V6.875C22 5.05164 21.2757 3.30295 19.9864 2.01364C18.697 0.724328 16.9484 0 15.125 0V0ZM19.9375 15.125C19.9375 17.7787 17.7787 19.9375 15.125 19.9375H6.875C4.22125 19.9375 2.0625 17.7787 2.0625 15.125V6.875C2.0625 4.22125 4.22125 2.0625 6.875 2.0625H15.125C17.7787 2.0625 19.9375 4.22125 19.9375 6.875V15.125Z" fill="#33B7BC"/>
@@ -228,7 +226,7 @@ function Footer() {
                                     </clipPath>
                                 </defs>
                             </svg>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

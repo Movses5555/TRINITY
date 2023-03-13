@@ -16,7 +16,7 @@ function Offers({
 
     const MainTabs = [
         { name: 'Special Offer', value: 'special_offer'},
-        { name: 'New car', value: 'new_car'},
+        { name: 'New cars', value: 'new_car'},
         { name: 'Most Popular', value: 'most_popular'},
         { name: 'Daily', value: 'daily'},
     ]

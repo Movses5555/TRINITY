@@ -39,7 +39,7 @@ function Header({menuStatus, setMenuStatus}) {
               !menuStatus && (
                 <>
                   <a href="tel:971585907875" className={styles.tel}>+971 58 590 7875</a>
-                  <div className={styles.locationWrap}>
+                  {/* <div className={styles.locationWrap}>
                     <button onClick={() => locationModalSet(!locationModal)} className={locationModal ? `${styles.location} ${styles.active}` : styles.location}>
                       {location}
                       <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">
@@ -54,7 +54,7 @@ function Header({menuStatus, setMenuStatus}) {
                           }} className={styles.changeLocation}>{item.city}</button>)}
                       </div> : null
                     }
-                  </div>
+                  </div> */}
                   <button className={styles.lang}>
                     {lang}
                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6" fill="none">

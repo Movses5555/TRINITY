@@ -9,13 +9,21 @@ import { generateQuery } from '../helpers/generateQuery';
 import { getCars } from '../api';
 
 export const Cars = () => {
+  const search = window.location.search;
+  const params = new URLSearchParams(search);
   const [openModal, setOpenModal] = useState(false);
   const [activeItem, setActiveItem] = useState({});
   const [offersCars, setOffersCars] = useState([]);
   const [offersActiveTab, setOffersActiveTab] = useState('');
 
   useEffect(() => {
+    
+    let activeTab = params.get('tab');
+    if(!!activeTab) {
+      setOffersActiveTab(activeTab)
+    }
     getCarsData();
+
   }, [])
   
   useEffect(() => {

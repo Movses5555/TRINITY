@@ -82,10 +82,20 @@ export const CarRentModal = ({
       ...data,
       [key]: value
     })
+  }
+
+  const onFocus = (key) => {
     setErrors({
       ...errors,
-      [key]: null
+      [key]: null,
     })
+  }
+  
+  const onChangeDate = (date) => {
+    if(date.startDate < date.endDate) {
+      setOpenDatePicker(false)
+    }
+    setDate(date)
   }
 
   const onBookingRequest = () => {
@@ -93,6 +103,7 @@ export const CarRentModal = ({
       ...data,
       from: format(new Date(date.startDate), 'dd.MM.yyyy'),
       to: format(new Date(date.endDate), 'dd.MM.yyyy'),
+      place: !!data.place ? data.place : null
     }
     setIsDisabledButton(true);
     bookingRequest(requestData)
@@ -201,9 +212,9 @@ export const CarRentModal = ({
                 {
                   !!openDatePicker && (
                     <DateRange
-                      editableDateInputs={true}
+                      editableDateInputs={false}
                       onChange={(item) => {
-                        setDate(item.selection)
+                        onChangeDate(item.selection)
                       }}
                       moveRangeOnFirstSelection={false}
                       ranges={[{
@@ -214,14 +225,29 @@ export const CarRentModal = ({
                     />
                   )
                 }
+                <div className={styles.checkboxWrapper}>
+                  <input
+                    id='from_garage'
+                    type="checkbox"
+                    className={styles.checkbox}
+                    checked={data.from_garage || false}
+                    onChange={(e) => {
+                      onChange('from_garage', e.target.checked)
+                      onFocus('place')
+                    }}
+                  />
+                  <label htmlFor="from_garage">Pickup from Trinity Garage</label>
+                </div>
                 <label>Where to bring the car ?</label>
                 <div className={styles.inputWrapper}>
                   <input
                     type="text"
-                    placeholder={'Pickup from Trinity garage'}
+                    placeholder={'Delivery address'}
                     className={!!errors?.place ? `${styles.input} ${styles.inputError}` : styles.input}
                     name='place'
                     value={data?.place}
+                    disabled={!!data?.from_garage}
+                    onFocus={() => onFocus('place')}
                     onChange={(e) => {
                       onChange('place', e.target.value)
                     }}
@@ -236,13 +262,24 @@ export const CarRentModal = ({
                 <label>Phone number</label>
                 <div className={styles.inputWrapper}>
                   <input
-                    type="text"
-                    pattern="[0-9]"
+                    type="tel"
+                    pattern="[0-9]+"
                     placeholder={'Phone number'}
                     className={!!errors?.phone ? `${styles.input} ${styles.inputError}` : styles.input}
                     name='phone'
+                    value={data.phone || ''}
+                    onFocus={() => {
+                      onFocus('phone')
+                      if(!data.phone || data.phone === '') {
+                        onChange('phone', '+')
+                      }
+                    }}
                     onChange={(e) => {
-                      onChange('phone', e.target.value)
+                      let value = e.target.value;
+                      const regex = /^\+?\d+$/;
+                      if (value === "" || value === "+" || regex.test(value)) {
+                        onChange('phone', value)
+                      }
                     }}
                   />
                   {
@@ -251,13 +288,31 @@ export const CarRentModal = ({
                     )
                   }
                 </div>
+                <label>Telegram Username</label>
+                <div className={styles.inputWrapper}>
+                  <input
+                    type="text"
+                    placeholder={'Telegram Username'}
+                    className={styles.input}
+                    name='telegram'
+                    value={data?.telegram}
+                    onFocus={() => {
+                      if(!data.telegram || data.telegram === '') {
+                        onChange('telegram', '@')
+                      }
+                    }}
+                    onChange={(e) => {
+                      onChange('telegram', e.target.value)
+                    }}
+                  />
+                </div>
               </div>
               <div className={styles.rentalRateContent}>
                 <h2>Rental rate</h2>
                 <div className={styles.rentalRateItem}>
                   <div className={styles.itemRightContent}>
                     <span className={styles.priceOneDay}>{prices?.AED?.amount} AED / {prices?.USD?.amount} $</span>
-                    <span className={styles.type}>price for one day</span>
+                    <span className={styles.typeOneDay}>price for one day</span>
                   </div>
                 </div>
                 {/* <Item

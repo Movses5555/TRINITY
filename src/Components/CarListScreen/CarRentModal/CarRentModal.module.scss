@@ -56,6 +56,14 @@
             align-items: flex-end;
             color: #FFFFFF;
             position: relative;
+            span {
+              width: calc(100% - 64px);
+              word-break: break-all;
+            }
+            @media screen and (max-width: 850px){
+              font-size: 32px;
+              line-height: 46px;
+            }
             .infoButton {
               margin-left: 10px;
               margin-bottom: 10px;
@@ -224,7 +232,6 @@
                 height: 90px;
                 background: linear-gradient(90.75deg, rgba(28, 28, 28, 0.2) 0.65%, rgba(27, 27, 27, 0.08) 107.06%);
                 border-radius: 10px;
-                height: 90px;
                 border: 1px solid #3E515F;
                 padding: 0 60px 0 30px;
                 &::placeholder {
@@ -240,6 +247,9 @@
                 display: flex;
                 align-items: center;
                 color: #FFFFFF;
+                &:disabled {
+                  opacity: 0.5;
+                }
               }
               img {
                 position: absolute;
@@ -279,6 +289,30 @@
                   align-items: center;
                   color: #FFFFFF;
                 }
+              }
+            }
+            .checkboxWrapper {
+              width: 100%;
+              margin-bottom: 20px;
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              cursor: pointer;
+              .checkbox {
+                width: 24px;
+                height: 24px;
+                background: linear-gradient(90.75deg, rgba(28, 28, 28, 0.2) 0.65%, rgba(27, 27, 27, 0.08) 107.06%);
+                border-radius: 4px;
+                accent-color: #33B7BC;
+                margin-right: 16px;
+                outline-width: 1px;
+                outline-color: #33B7BC;
+                outline: 1px solid  #33B7BC;
+                background-color: #2B2B2B;
+              }
+              label {
+                margin: 0;
+                cursor: pointer;
               }
             }
     
@@ -363,6 +397,16 @@
                   align-items: center;
                   text-align: left;
                   color: #FFFFFF;
+                }
+                .typeOneDay {
+                  font-weight: 400;
+                  font-size: 15px;
+                  line-height: 16px;
+                  display: flex;
+                  align-items: center;
+                  text-align: right;
+                  color: #778292;
+                  justify-content: flex-start;
                 }
               }
               &:last-child {

@@ -8,19 +8,19 @@ import { Navigation } from '../../Elements/Navigation';
 
 const mockData = [
     {
-        count: 8,
-        type: 'year',
-        description: `We've come a long way from a 2-people company to winning at Webby's.`
-    },
-    {
-        count: 72,
+        count: 25,
         type: 'cars',
-        description: `We've come a long way from a 2-people company to winning at Webby's.`
+        description: `Exclusive fleet never seen on car rental market`
     },
     {
-        count: 190,
-        type: 'people',
-        description: `We've come a long way from a 2-people company to winning at Webby's.`
+        count: '24/7',
+        type: '',
+        description: `ready to tailor make your rental hassle free`
+    },
+    {
+        count: '100%',
+        type: '',
+        description: `satisfaction guarantee`
     }
 ]
 
